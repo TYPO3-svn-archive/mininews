@@ -1,0 +1,35 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+  <ROOT>
+    <type>array</type>
+    <el>
+      <field_templateObject>
+		<TCEforms>
+			<label>LLL:EXT:mininews/locallang_db.php:tt_content.pi_flexform.select_template</label>
+
+			<config>
+				<type>select</type>
+				<items>
+					<n0>
+						<n0></n0>
+						<n1>0</n1>
+					</n0>
+				</items>
+				<foreign_table>tx_templavoila_tmplobj</foreign_table>
+				<foreign_table_where>
+					AND tx_templavoila_tmplobj.pid=###STORAGE_PID### 
+					AND tx_templavoila_tmplobj.datastructure="EXT:mininews/template_datastructure.xml" 
+					AND tx_templavoila_tmplobj.parent=0 
+					ORDER BY tx_templavoila_tmplobj.title
+				</foreign_table_where>
+				<size>1</size>
+				<minitems>0</minitems>
+				<maxitems>1</maxitems>
+			</config>
+		</TCEforms>
+      </field_templateObject>
+    </el>
+  </ROOT>
+</T3DataStructure>

@@ -26,7 +26,8 @@ t3lib_extMgm::addTCAcolumns('tt_content',$tempColumns,1);
 // ... and finally add the new column definition to the list of fields shown for the mininews plugin:
 // (This also removes the presence of the normally shown fields, 'layout' and 'select_key')
 $TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1']='layout,select_key';
-$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1']='tx_mininews_frontpage_list;;;;1-1-1';
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1']='tx_mininews_frontpage_list;;;;1-1-1,pi_flexform';
+t3lib_extMgm::addPiFlexFormValue($_EXTKEY.'_pi1', 'FILE:EXT:mininews/flexform_ds.xml');
 
 // Now, define a new table for the extension. Name: 'tx_mininews_news'
 // Only the 'ctrl' section is defined since the rest of the config is in the 'tca.php' file, loaded dynamically when needed.
@@ -61,5 +62,13 @@ t3lib_extMgm::addToInsertRecords('tx_mininews_news');
 
 t3lib_extMgm::addPlugin(Array('LLL:EXT:mininews/locallang_db.php:tt_content.list_type', $_EXTKEY.'_pi1'),'list_type');
 
+// Adding datastructure for Mininews:
+$GLOBALS['TBE_MODULES_EXT']['xMOD_tx_templavoila_cm1']['staticDataStructures'][]=array(
+	'title' => 'Mininews Template',
+	'path' => 'EXT:'.$_EXTKEY.'/template_datastructure.xml',
+	'icon' => '',
+	'scope' => 0,
+);	
+	
 if (TYPO3_MODE=='BE')	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_mininews_pi1_wizicon'] = t3lib_extMgm::extPath($_EXTKEY).'pi1/class.tx_mininews_pi1_wizicon.php';
 ?>

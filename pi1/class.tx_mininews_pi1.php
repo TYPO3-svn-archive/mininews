@@ -34,23 +34,26 @@
  *
  *
  *
- *   70: class tx_mininews_pi1 extends tslib_pibase 
- *   89:     function main($content,$conf)	
- *  114:     function listView($content,$conf)	
- *  185:     function makelist($res)	
- *  211:     function makeListItem()	
- *  227:     function makefrontpagelist($res)	
- *  253:     function makeFrontPageListItem()	
- *  269:     function singleView($content,$conf)	
- *  299:     function getFieldContent($fN)	
+ *   73: class tx_mininews_pi1 extends tslib_pibase 
+ *   93:     function main($content,$conf)	
+ *  118:     function listView($content,$conf)	
+ *  209:     function templaVoilaList($res)	
+ *  271:     function makelist($res)	
+ *  297:     function makeListItem()	
+ *  313:     function makefrontpagelist($res)	
+ *  367:     function makeFrontPageListItem()	
+ *  383:     function singleView($content,$conf)	
+ *  430:     function getFieldContent($fN)	
  *
- * TOTAL FUNCTIONS: 8
+ * TOTAL FUNCTIONS: 9
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
 
 require_once(PATH_tslib.'class.tslib_pibase.php');
-
+if (t3lib_extMgm::isLoaded('templavoila'))	{
+	require_once(t3lib_extMgm::extPath('templavoila').'class.tx_templavoila_htmlmarkup.php');
+}
 
 
 
@@ -75,8 +78,9 @@ class tx_mininews_pi1 extends tslib_pibase {
 	var $extKey = 'mininews';	// The extension key.
 
 
-
-
+		// TemplaVoila specific:
+	var $TA='';					// If TemplaVoila is used and a TO record is found, this array will be loaded with Template Array.
+	var $TMPLobj='';			// Template Object
 
 
 	/**
@@ -112,6 +116,21 @@ class tx_mininews_pi1 extends tslib_pibase {
 	 * @return	string		HTML content from the extension!
 	 */
 	function listView($content,$conf)	{
+	
+			// Init FlexForm configuration for plugin:
+		$this->pi_initPIflexForm();
+		
+			// Looking for TemplaVoila TO record and if found, initialize template object:
+		if (t3lib_extMgm::isLoaded('templavoila'))	{
+			$field_templateObject = $this->pi_getFFvalue($this->cObj->data['pi_flexform'],'field_templateObject');
+			if (intval($field_templateObject))	{
+				$this->TMPLobj = t3lib_div::makeInstance('tx_templavoila_htmlmarkup');
+				$this->TA = $this->TMPLobj->getTemplateArrayForTO(intval($field_templateObject));
+				if (is_array($this->TA))	{
+					$this->TMPLobj->setHeaderBodyParts($this->TMPLobj->tDat['MappingInfo_head'],$this->TMPLobj->tDat['MappingData_head_cached']);				
+				}
+			}
+		}
 	
 			// Init:
 		$this->conf=$conf;		// Setting the TypoScript passed to this function in $this->conf
@@ -161,19 +180,86 @@ class tx_mininews_pi1 extends tslib_pibase {
 					// Adds the whole list table
 				$fullTable.=$this->makefrontpagelist($res);
 			} else {	// Archive listing:
-					// Adds the whole list table
-				$fullTable.=$this->makelist($res);
-				
-					// Adds the search box:
-				$fullTable.=$this->pi_list_searchBox();
+			
+				if (is_array($this->TA))	{	// TemplaVoila:
+					$fullTable.=$this->templaVoilaList($res);
+				} else {
+						// Adds the whole list table
+					$fullTable.=$this->makelist($res);
 					
-					// Adds the result browser:
-				$fullTable.=$this->pi_list_browseresults();
+						// Adds the search box:
+					$fullTable.=$this->pi_list_searchBox();
+						
+						// Adds the result browser:
+					$fullTable.=$this->pi_list_browseresults();
+				}
 			}
 			
 				// Returns the content from the plugin.
 			return $fullTable;
 		}
+	}
+	
+	/**
+	 * Compile the list of items (archive), using TemplaVoila
+	 * 
+	 * @param	pointer		MySQL SELECT resource
+	 * @return	string		HTML content
+	 */
+	function templaVoilaList($res)	{
+
+			// Create list of elements:
+		$elements='';
+		while($this->internal['currentRow'] = mysql_fetch_assoc($res))	{
+			$elements.=$this->TMPLobj->mergeDataArrayToTemplateArray(
+				$this->TA['sub']['sArchive']['sub']['field_archiveListing']['sub']['element_even'],
+				array(
+					'field_date' => $this->getFieldContent('datetime'),
+					'field_header' => $this->pi_list_linkSingle($this->getFieldContent('title'),$this->internal['currentRow']['uid'],1),
+					'field_teaser' => nl2br(trim(t3lib_div::fixed_lgd($this->getFieldContent('teaser_list'),$this->conf['frontPage.']['teaserLgd'])))
+				)
+			);
+		}
+
+			// Initializing variables:
+		$pointer=$this->piVars['pointer'];
+		$count=$this->internal['res_count'];
+		$results_at_a_time = t3lib_div::intInRange($this->internal['results_at_a_time'],1,1000);
+		$maxPages = t3lib_div::intInRange($this->internal['maxPages'],1,100);
+		$max = t3lib_div::intInRange(ceil($count/$results_at_a_time),1,$maxPages);
+		$pointer=intval($pointer);
+		$links=array();
+
+		$br_elements='';
+		for($a=0;$a<$max;$a++)	{
+			$br_elements.=$this->TMPLobj->mergeDataArrayToTemplateArray(
+				$this->TA['sub']['sArchive']['sub']['field_browseBox_cellsContainer']['sub'][$pointer==$a?'field_browseBox_cellHighlighted':'field_browseBox_cellNormal'],
+				array(
+					'field_url' => $this->pi_linkTP_keepPIvars_url(array('pointer'=>($a?$a:'')),$this->pi_isOnlyFields($this->pi_isOnlyFields)),
+					'field_label' => trim($this->pi_getLL('pi_list_browseresults_page','Page',TRUE).' '.($a+1)),
+				)
+			);
+		}
+		
+		$pR1 = $pointer*$results_at_a_time+1;
+		$pR2 = $pointer*$results_at_a_time+$results_at_a_time;
+		$rangeLabel = $pR1.'-'.min(array($this->internal['res_count'],$pR2));
+		
+		
+			// Wrap the elements in their containers:			
+		$out = $this->TMPLobj->mergeDataArrayToTemplateArray(
+				$this->TA['sub']['sArchive'],
+				array(
+					'field_archiveListing' => $elements,
+					'field_browseBox_cellsContainer' => $br_elements,
+					'field_searchBox_sword' => htmlspecialchars($this->piVars['sword']),
+					'field_searchBox_submitUrl' => htmlspecialchars(t3lib_div::getIndpEnv('REQUEST_URI')),
+					'field_browseBox_displayRange' => $rangeLabel,
+					'field_browseBox_displayCount' => $this->internal['res_count']
+				)
+			);	
+			
+		return $out;
 	}
 
 	/**
@@ -225,21 +311,49 @@ class tx_mininews_pi1 extends tslib_pibase {
 	 * @return	string		HTML content
 	 */
 	function makefrontpagelist($res)	{
-		$items=Array();
+
+			// Detecting template engine:
+		if (is_array($this->TA))	{	// TemplaVoila:
+#debug($this->TA);
+
+				// Create list of elements:
+			$elements='';
+			while($this->internal['currentRow'] = mysql_fetch_assoc($res))	{
+				$elements.=$this->TMPLobj->mergeDataArrayToTemplateArray(
+					$this->TA['sub']['sFrontpage']['sub']['field_fpListing']['sub']['element_even'],
+					array(
+						'field_date' => $this->getFieldContent('datetime'),
+						'field_header' => $this->pi_list_linkSingle($this->getFieldContent('title'),$this->internal['currentRow']['uid'],1),
+						'field_teaser' => nl2br(trim(t3lib_div::fixed_lgd($this->getFieldContent('teaser_list'),$this->conf['frontPage.']['teaserLgd']))),
+						'field_url' => $this->pi_list_linkSingle('',$this->internal['currentRow']['uid'],TRUE,array(),TRUE)
+					)
+				);
+			}
+
+				// Wrap the elements in their container:			
+			$out = $this->TMPLobj->mergeDataArrayToTemplateArray(
+					$this->TA['sub']['sFrontpage'],
+					array(
+						'field_fpListing' => $elements,
+					)
+				);
+		} else {	// Default:
+			$items=Array();
+			
+				// Make list table rows
+			while($this->internal['currentRow'] = mysql_fetch_assoc($res))	{
+				$items[]=$this->makeFrontPageListItem();
+			}
 		
-			// Make list table rows
-		while($this->internal['currentRow'] = mysql_fetch_assoc($res))	{
-			$items[]=$this->makeFrontPageListItem();
+			$out = '
+			
+			<!--
+				Frontpage listing of mininews:
+			-->
+			<div'.$this->pi_classParam('fp_listrow').' style="margin-top: 5px;">
+				'.implode(chr(10),$items).'
+			</div>';
 		}
-	
-		$out = '
-		
-		<!--
-			Frontpage listing of mininews:
-		-->
-		<div'.$this->pi_classParam('fp_listrow').' style="margin-top: 5px;">
-			'.implode(chr(10),$items).'
-		</div>';
 		
 		return $out;
 	}
@@ -273,21 +387,38 @@ class tx_mininews_pi1 extends tslib_pibase {
 			// This sets the title of the page for use in indexed search results:
 		if ($this->internal['currentRow']['title'])	$GLOBALS['TSFE']->indexedDocTitle=$this->internal['currentRow']['title'];
 
-		$content='
 		
-		<!--
-			Single view of mininews item:
-		-->
-		<div'.$this->pi_classParam('singleView').' style="margin-top: 5px;">
-				'.($this->internal['currentRow']['datetime'] && !$this->conf['singleView.']['disableDateDisplay'] ? '
-			<p'.$this->pi_classParam('singleViewField-datetime').'>'.$this->getFieldContent('datetime').'</p>':'').'
-			<h2>'.$this->pi_getEditIcon($this->getFieldContent('title'),'datetime,title').'</h2>
-			<p'.$this->pi_classParam('singleViewField-teaser').'>'.$this->pi_getEditIcon(nl2br($this->getFieldContent('teaser')),'teaser').'</p>
-			'.$this->pi_getEditIcon($this->getFieldContent('full_text'),'full_text').'
-		</div>'.
-		$this->pi_getEditPanel();
+			// Detecting template engine:
+		if (is_array($this->TA))	{	// TemplaVoila:
+
+				// Create list of elements:
+			$content = $this->TMPLobj->mergeDataArrayToTemplateArray(
+				$this->TA['sub']['sSingle'],
+				array(
+					'field_date' => ($this->internal['currentRow']['datetime'] && !$this->conf['singleView.']['disableDateDisplay'] ? $this->getFieldContent('datetime') : ''),
+					'field_header' => $this->pi_getEditIcon($this->getFieldContent('title'),'datetime,title'),
+					'field_teaser' => $this->pi_getEditIcon(nl2br($this->getFieldContent('teaser')),'teaser'),
+					'field_bodytext' => $this->pi_getEditIcon($this->getFieldContent('full_text'),'full_text'),
+					'field_url' => $this->pi_list_linkSingle('l',0,FALSE,array(),TRUE)
+				)
+			);
+		} else {	// Default:
+				
+			$content='
+			
+			<!--
+				Single view of mininews item:
+			-->
+			<div'.$this->pi_classParam('singleView').' style="margin-top: 5px;">
+					'.($this->internal['currentRow']['datetime'] && !$this->conf['singleView.']['disableDateDisplay'] ? '
+				<p'.$this->pi_classParam('singleViewField-datetime').'>'.$this->getFieldContent('datetime').'</p>':'').'
+				<h2>'.$this->pi_getEditIcon($this->getFieldContent('title'),'datetime,title').'</h2>
+				<p'.$this->pi_classParam('singleViewField-teaser').'>'.$this->pi_getEditIcon(nl2br($this->getFieldContent('teaser')),'teaser').'</p>
+				'.$this->pi_getEditIcon($this->getFieldContent('full_text'),'full_text').'
+			</div>';
+		}
 	
-		return $content;
+		return $content.$this->pi_getEditPanel();
 	}
 
 	/**

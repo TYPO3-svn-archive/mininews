@@ -19,6 +19,7 @@ $LOCAL_LANG = Array (
 		'tx_mininews_news.full_text' => 'Full story:',
 		'tx_mininews_news.full_text.W.RTE' => 'Full screen Rich Text Editing',
 		'tx_mininews_news.front_page' => 'Show on front page?',
+		'tt_content.pi_flexform.select_template' => 'Template Object for formatting:',
 	),
 	'dk' => Array (
 		'tt_content.list_type' => 'Mininyheder',

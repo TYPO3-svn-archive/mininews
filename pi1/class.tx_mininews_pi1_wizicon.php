@@ -34,11 +34,11 @@
  *
  *
  *   55: class tx_mininews_pi1_wizicon 
- *   61:     function proc($wizardItems)	
- *   81:     function includeLocalLang()	
+ *   63:     function proc($wizardItems)	
+ *   83:     function includeLocalLang()	
  *
  * TOTAL FUNCTIONS: 2
- * (This index is automatically created/updated by the extension 'extdeveval')
+ * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
 
@@ -56,7 +56,7 @@ class tx_mininews_pi1_wizicon {
 
 	/**
 	 * Adds Mininews wizard item to the list in the DB content element wizard.
-	 *
+	 * 
 	 * @param	array		Array of wizard items, input
 	 * @return	array		Array of wizard items, output (modified)
 	 */

@@ -1,21 +1,22 @@
-a:2:{s:4:"meta";a:3:{s:5:"title";s:12:"Mininews API";s:5:"descr";s:0:"";s:7:"options";a:2:{s:10:"usageCount";N;s:19:"includeCodeAbstract";s:1:"1";}}s:5:"files";a:2:{s:14:"MD5_3e0955a70c";a:4:{s:8:"filename";s:29:"pi1/class.tx_mininews_pi1.php";s:8:"filesize";i:11281;s:6:"header";a:5:{s:4:"text";s:49:"
+a:2:{s:4:"meta";a:3:{s:5:"title";s:12:"Mininews API";s:5:"descr";s:0:"";s:7:"options";a:2:{s:10:"usageCount";N;s:19:"includeCodeAbstract";s:1:"1";}}s:5:"files";a:2:{s:14:"MD5_3e0955a70c";a:4:{s:8:"filename";s:29:"pi1/class.tx_mininews_pi1.php";s:8:"filesize";i:16782;s:6:"header";a:5:{s:4:"text";s:49:"
 
 Plugin 'Mininews' for the "mininews" extension
-";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:41:"@author	Kasper Skårhøj (kasper@typo3.com)";i:1;s:14:"@package TYPO3";i:2;s:23:"@subpackage tx_mininews";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:33:"Kasper Skårhøj (kasper@typo3.com)";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:12:"tx_mininews ";}}}s:3:"DAT";a:9:{i:1;a:8:{s:6:"header";s:44:"class tx_mininews_pi1 extends tslib_pibase {";s:5:"class";i:1;s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:5:{s:4:"text";s:49:"
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:41:"@author	Kasper Skårhøj (kasper@typo3.com)";i:1;s:14:"@package TYPO3";i:2;s:23:"@subpackage tx_mininews";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:33:"Kasper Skårhøj (kasper@typo3.com)";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:12:"tx_mininews ";}}}s:3:"DAT";a:10:{i:1;a:8:{s:6:"header";s:44:"class tx_mininews_pi1 extends tslib_pibase {";s:5:"class";i:1;s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:5:{s:4:"text";s:49:"
 
 Plugin 'Mininews' for the "mininews" extension
-";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:41:"@author	Kasper Skårhøj (kasper@typo3.com)";i:1;s:14:"@package TYPO3";i:2;s:23:"@subpackage tx_mininews";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:33:"Kasper Skårhøj (kasper@typo3.com)";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:12:"tx_mininews ";}}}s:7:"content";a:2:{i:0;s:256:"
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:41:"@author	Kasper Skårhøj (kasper@typo3.com)";i:1;s:14:"@package TYPO3";i:2;s:23:"@subpackage tx_mininews";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:33:"Kasper Skårhøj (kasper@typo3.com)";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:12:"tx_mininews ";}}}s:7:"content";a:2:{i:0;s:436:"
 		// Default plugin variables:
 	var $prefixId = 'tx_mininews_pi1';		// Same as class name
 	var $scriptRelPath = 'pi1/class.tx_mininews_pi1.php';	// Path to this script relative to the extension dir.
 	var $extKey = 'mininews';	// The extension key.
 
 
+		// TemplaVoila specific:
+	var $TA='';					// If TemplaVoila is used and a TO record is found, this array will be loaded with Template Array.
+	var $TMPLobj='';			// Template Object
 
 
-
-
-	";i:1;i:-1;}s:12:"content_size";i:256;s:13:"content_lines";i:11;s:6:"atLine";i:68;}i:3;a:7:{s:6:"header";s:31:"function main($content,$conf)	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:3:{s:4:"text";s:41:"
+	";i:1;i:-1;}s:12:"content_size";i:436;s:13:"content_lines";i:12;s:6:"atLine";i:71;}i:3;a:7:{s:6:"header";s:31:"function main($content,$conf)	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:3:{s:4:"text";s:41:"
 
 Main function, called from TypoScript:
 ";s:5:"param";a:2:{i:0;a:2:{i:0;s:6:"string";i:1;s:31:"Input content, not used, ignore";}i:1;a:2:{i:0;s:5:"array";i:1;s:31:"TypoScript configuration input.";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:32:"HTML content from the extension!";}}s:7:"content";a:2:{i:0;s:564:"		switch((string)$conf['CMD'])	{
@@ -35,27 +36,50 @@ Main function, called from TypoScript:
 		}
 	}
 
-	";i:1;i:0;}s:12:"content_size";i:564;s:13:"content_lines";i:17;s:6:"atLine";i:87;}i:5;a:7:{s:6:"header";s:35:"function listView($content,$conf)	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:3:{s:4:"text";s:73:"
+	";i:1;i:0;}s:12:"content_size";i:564;s:13:"content_lines";i:17;s:6:"atLine";i:91;}i:5;a:7:{s:6:"header";s:35:"function listView($content,$conf)	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:3:{s:4:"text";s:73:"
 
 Rendering of list view plus single view if requested by showUid piVars
 ";s:5:"param";a:2:{i:0;a:2:{i:0;s:6:"string";i:1;s:31:"Input content, not used, ignore";}i:1;a:2:{i:0;s:5:"array";i:1;s:31:"TypoScript configuration input.";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:32:"HTML content from the extension!";}}s:7:"content";a:2:{i:0;s:507:"	
-			// Init:
-		$this->conf=$conf;		// Setting the TypoScript passed to this function in $this->conf
-		$FP = $this->conf['CMD']=='FP' ? 1 : $this->cObj->data['tx_mininews_frontpage_list'];
-		$lConf = $this->conf[$FP?'frontPage.':'listView.'];	// Local settings for the listView function
-		$this->pi_loadLL();		// Loading the LOCAL_LANG values
+			// Init FlexForm configuration for plugin:
+		$this->pi_initPIflexForm();
 		
-			// Either render the list 
+			// Looking for TemplaVoila TO record and if found, initialize template object:
+		if (t3lib_extMgm::isLoaded('templavoila'))	{
+			$field_templateObject = $this->pi_getFFvalue($this->cObj->data['pi_flexform'],'field_templateObject');
+			if (intval($field_templateObject))	{
+				$this->TMPLobj 
 [...]
-llTable.=$this->pi_list_browseresults();
+.=$this->pi_list_browseresults();
+				}
 			}
 			
 				// Returns the content from the plugin.
 			return $fullTable;
 		}
 	}
+	
+	";i:1;i:1;}s:12:"content_size";i:3517;s:13:"content_lines";i:84;s:6:"atLine";i:116;}i:7;a:7:{s:6:"header";s:32:"function templaVoilaList($res)	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:3:{s:4:"text";s:57:"
 
-	";i:1;i:1;}s:12:"content_size";i:2693;s:13:"content_lines";i:64;s:6:"atLine";i:112;}i:7;a:7:{s:6:"header";s:25:"function makelist($res)	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:3:{s:4:"text";s:38:"
+Compile the list of items (archive), using TemplaVoila
+";s:5:"param";a:1:{i:0;a:2:{i:0;s:7:"pointer";i:1;s:21:"MySQL SELECT resource";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:12:"HTML content";}}s:7:"content";a:2:{i:0;s:507:"
+			// Create list of elements:
+		$elements='';
+		while($this->internal['currentRow'] = mysql_fetch_assoc($res))	{
+			$elements.=$this->TMPLobj->mergeDataArrayToTemplateArray(
+				$this->TA['sub']['sArchive']['sub']['field_archiveListing']['sub']['element_even'],
+				array(
+					'field_date' => $this->getFieldContent('datetime'),
+					'field_header' => $this->pi_list_linkS
+[...]
+ge' => $rangeLabel,
+					'field_browseBox_displayCount' => $this->internal['res_count']
+				)
+			);	
+			
+		return $out;
+	}
+
+	";i:1;i:1;}s:12:"content_size";i:2271;s:13:"content_lines";i:55;s:6:"atLine";i:207;}i:9;a:7:{s:6:"header";s:25:"function makelist($res)	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:3:{s:4:"text";s:38:"
 
 Compile the list of items (archive)
 ";s:5:"param";a:1:{i:0;a:2:{i:0;s:7:"pointer";i:1;s:21:"MySQL SELECT resource";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:12:"HTML content";}}s:7:"content";a:2:{i:0;s:348:"		$items=Array();
@@ -77,7 +101,7 @@ Compile the list of items (archive)
 		return $out;
 	}
 
-	";i:1;i:0;}s:12:"content_size";i:348;s:13:"content_lines";i:19;s:6:"atLine";i:183;}i:9;a:7:{s:6:"header";s:25:"function makeListItem()	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:5:{s:4:"text";s:38:"
+	";i:1;i:0;}s:12:"content_size";i:348;s:13:"content_lines";i:19;s:6:"atLine";i:269;}i:11;a:7:{s:6:"header";s:25:"function makeListItem()	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:5:{s:4:"text";s:38:"
 
 Create single list item (frontpage)
 ";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:12:"HTML content";}s:5:"other";a:1:{i:0;s:15:"@see makelist()";}s:11:"other_index";a:1:{s:4:"@see";a:1:{i:0;s:11:"makelist() ";}}}s:7:"content";a:2:{i:0;s:507:"		$out='
@@ -91,29 +115,30 @@ Create single list item (frontpage)
 		return $out;
 	}
 
-	";i:1;i:1;}s:12:"content_size";i:727;s:13:"content_lines";i:9;s:6:"atLine";i:209;}i:11;a:7:{s:6:"header";s:34:"function makefrontpagelist($res)	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:3:{s:4:"text";s:38:"
+	";i:1;i:1;}s:12:"content_size";i:727;s:13:"content_lines";i:9;s:6:"atLine";i:295;}i:13;a:7:{s:6:"header";s:34:"function makefrontpagelist($res)	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:3:{s:4:"text";s:38:"
 
 Compile the list of items (archive)
-";s:5:"param";a:1:{i:0;a:2:{i:0;s:7:"pointer";i:1;s:21:"MySQL SELECT resource";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:12:"HTML content";}}s:7:"content";a:2:{i:0;s:362:"		$items=Array();
-		
-			// Make list table rows
-		while($this->internal['currentRow'] = mysql_fetch_assoc($res))	{
-			$items[]=$this->makeFrontPageListItem();
+";s:5:"param";a:1:{i:0;a:2:{i:0;s:7:"pointer";i:1;s:21:"MySQL SELECT resource";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:12:"HTML content";}}s:7:"content";a:2:{i:0;s:507:"
+			// Detecting template engine:
+		if (is_array($this->TA))	{	// TemplaVoila:
+#debug($this->TA);
+
+				// Create list of elements:
+			$elements='';
+			while($this->internal['currentRow'] = mysql_fetch_assoc($res))	{
+				$elements.=$this->TMPLobj->mergeDataArrayToTemplateArray(
+					$this->TA['sub']['sFrontpage']['sub']['field_fpListing']['sub']['element_even'],
+					array(
+[...]
+_classParam('fp_listrow').' style="margin-top: 5px;">
+				'.implode(chr(10),$items).'
+			</div>';
 		}
-	
-		$out = '
-		
-		<!--
-			Frontpage listing of mininews:
-		-->
-		<div'.$this->pi_classParam('fp_listrow').' style="margin-top: 5px;">
-			'.implode(chr(10),$items).'
-		</div>';
 		
 		return $out;
 	}
 
-	";i:1;i:0;}s:12:"content_size";i:362;s:13:"content_lines";i:19;s:6:"atLine";i:225;}i:13;a:7:{s:6:"header";s:34:"function makeFrontPageListItem()	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:5:{s:4:"text";s:38:"
+	";i:1;i:1;}s:12:"content_size";i:1430;s:13:"content_lines";i:47;s:6:"atLine";i:311;}i:15;a:7:{s:6:"header";s:34:"function makeFrontPageListItem()	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:5:{s:4:"text";s:38:"
 
 Create single list item (frontpage)
 ";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:12:"HTML content";}s:5:"other";a:1:{i:0;s:24:"@see makefrontpagelist()";}s:11:"other_index";a:1:{s:4:"@see";a:1:{i:0;s:20:"makefrontpagelist() ";}}}s:7:"content";a:2:{i:0;s:586:"		$out='
@@ -124,10 +149,10 @@ Create single list item (frontpage)
 		return $out;
 	}
 
-	";i:1;i:0;}s:12:"content_size";i:586;s:13:"content_lines";i:8;s:6:"atLine";i:251;}i:15;a:4:{s:6:"header";s:37:"function singleView($content,$conf)	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:3:{s:4:"text";s:40:"
+	";i:1;i:0;}s:12:"content_size";i:586;s:13:"content_lines";i:8;s:6:"atLine";i:365;}i:17;a:4:{s:6:"header";s:37:"function singleView($content,$conf)	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:3:{s:4:"text";s:40:"
 
 Render single view of a mininews item
-";s:5:"param";a:2:{i:0;a:2:{i:0;s:6:"string";i:1;s:31:"Input content, not used, ignore";}i:1;a:2:{i:0;s:5:"array";i:1;s:31:"TypoScript configuration input.";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:32:"HTML content from the extension!";}}s:6:"atLine";i:267;}i:17;a:7:{s:6:"header";s:31:"function getFieldContent($fN)	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:3:{s:4:"text";s:67:"
+";s:5:"param";a:2:{i:0;a:2:{i:0;s:6:"string";i:1;s:31:"Input content, not used, ignore";}i:1;a:2:{i:0;s:5:"array";i:1;s:31:"TypoScript configuration input.";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:32:"HTML content from the extension!";}}s:6:"atLine";i:381;}i:19;a:7:{s:6:"header";s:31:"function getFieldContent($fN)	{";s:11:"parentClass";s:15:"tx_mininews_pi1";s:4:"cDat";a:3:{s:4:"text";s:67:"
 
 Render the content from a given field, prepared for HTML output.
 ";s:5:"param";a:1:{i:0;a:2:{i:0;s:6:"string";i:1;s:9:"Fieldname";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:33:"HTML ready content from the field";}}s:7:"content";a:2:{i:0;s:507:"		switch($fN) {
@@ -140,7 +165,7 @@ Render the content from a given field, prepared for HTML output.
 ninews_pi1.php'])	{
 	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/mininews/pi1/class.tx_mininews_pi1.php']);
 }
-?>";i:1;i:1;}s:12:"content_size";i:1238;s:13:"content_lines";i:28;s:6:"atLine";i:297;}}}s:14:"MD5_ee3e732c7d";a:4:{s:8:"filename";s:37:"pi1/class.tx_mininews_pi1_wizicon.php";s:8:"filesize";i:2662;s:6:"header";a:5:{s:4:"text";s:35:"
+?>";i:1;i:1;}s:12:"content_size";i:1238;s:13:"content_lines";i:28;s:6:"atLine";i:428;}}}s:14:"MD5_ee3e732c7d";a:4:{s:8:"filename";s:37:"pi1/class.tx_mininews_pi1_wizicon.php";s:8:"filesize";i:2663;s:6:"header";a:5:{s:4:"text";s:35:"
 
 Class that adds the wizard icon.
 ";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:41:"@author	Kasper Skårhøj (kasper@typo3.com)";i:1;s:14:"@package TYPO3";i:2;s:23:"@subpackage tx_mininews";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:33:"Kasper Skårhøj (kasper@typo3.com)";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:12:"tx_mininews ";}}}s:3:"DAT";a:3:{i:1;a:8:{s:6:"header";s:31:"class tx_mininews_pi1_wizicon {";s:5:"class";i:1;s:11:"parentClass";s:23:"tx_mininews_pi1_wizicon";s:4:"cDat";a:5:{s:4:"text";s:35:"

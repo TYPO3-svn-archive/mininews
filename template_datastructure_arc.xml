@@ -1,0 +1,240 @@
+<T3DataStructure>
+	<ROOT>
+		<tx_templavoila>
+			<title>ARCHIVE LISTING</title>
+			<description>Select the HTML element which is the container of the whole archive listing portion of the template file:</description>
+			<tags>div:inner</tags>
+		</tx_templavoila>
+		<type>array</type>
+		<el>
+			<field_archiveListing>
+				<type>array</type>
+				<section>1</section>
+				<tx_templavoila>
+					<title>Archive Listing container</title>
+					<description></description>
+					<tags>div,table:inner</tags>
+				</tx_templavoila>
+				<el>
+					<element_even>
+						<type>array</type>
+						<tx_templavoila>
+							<title>Element Container, Even</title>
+							<description></description>
+							<tags>*:outer</tags>
+						</tx_templavoila>
+						<el>
+							<field_date>
+								<tx_templavoila>
+									<title>Date</title>
+									<description>News date</description>
+									<tags>*:inner</tags>
+									<sample_data>
+										<n0>6th August 10:34</n0>
+										<n1>29/12 2003</n1>
+									</sample_data>
+								</tx_templavoila>												
+							</field_date>
+							<field_header>
+								<tx_templavoila>
+									<title>Header</title>
+									<description>Header field.</description>
+									<tags>*:inner</tags>
+									<sample_data>
+										<n0>People on mars!</n0>
+										<n1>Snow in Sydney</n1>
+									</sample_data>
+								</tx_templavoila>												
+							</field_header>
+							<field_teaser>
+								<tx_templavoila>
+									<title>Teaser</title>
+									<description>Teaser field.</description>
+									<tags>*:inner</tags>
+									<sample_data>
+										<n0>Capthurim Chanaan vero genuit Sidonem primogenitum et Heth Iebuseum quoque </n0>
+									</sample_data>
+								</tx_templavoila>												
+							</field_teaser>
+						</el>							
+					</element_even>
+					<element_odd>
+						<type>array</type>
+						<tx_templavoila>
+							<title>Element Container, Even</title>
+							<description></description>
+							<tags>*:outer</tags>
+						</tx_templavoila>
+						<el>
+							<field_date>
+								<tx_templavoila>
+									<title>Date</title>
+									<description>News date</description>
+									<tags>*:inner</tags>
+									<sample_data>
+										<n0>6th August 10:34</n0>
+										<n1>29/12 2003</n1>
+									</sample_data>
+								</tx_templavoila>												
+							</field_date>
+							<field_header>
+								<tx_templavoila>
+									<title>Header</title>
+									<description>Header field.</description>
+									<tags>*:inner</tags>
+									<sample_data>
+										<n0>People on mars!</n0>
+										<n1>Snow in Sydney</n1>
+									</sample_data>
+								</tx_templavoila>												
+							</field_header>
+							<field_teaser>
+								<tx_templavoila>
+									<title>Teaser</title>
+									<description>Teaser field.</description>
+									<tags>*:inner</tags>
+									<sample_data>
+										<n0>Capthurim Chanaan vero genuit Sidonem primogenitum et Heth Iebuseum quoque </n0>
+									</sample_data>
+								</tx_templavoila>												
+							</field_teaser>
+						</el>							
+					</element_odd>
+				</el>
+			</field_archiveListing>
+
+			<!--
+				Defining mappings for the search box:
+			-->
+			<field_searchBox_submitUrl>
+				<type>attr</type>
+				<tx_templavoila>
+					<title>Search form action</title>
+					<description>URL of the news-search; Map to the action-attribute of the search form.</description>
+					<tags>form:attr:action</tags>
+					<sample_data>
+						<n0>javascript:alert('Hello, you pressed the search button!');return false;</n0>
+					</sample_data>
+				</tx_templavoila>
+			</field_searchBox_submitUrl>
+			<field_searchBox_sword>
+				<type>attr</type>
+				<tx_templavoila>
+					<title>Search word field</title>
+					<description>Search word; Map to the forms input-fields value-attribute.</description>
+					<tags>input:attr:value</tags>
+					<sample_data>
+						<n0>Strawberry Jam</n0>
+						<n1>Jack Daniels</n1>
+						<n2>Flowers</n2>
+					</sample_data>
+				</tx_templavoila>
+			</field_searchBox_sword>
+
+			<!--
+				Defining mappings for the browse box, display note:
+			-->
+			<field_browseBox_displayRange>
+				<tx_templavoila>
+					<title>Range</title>
+					<description>Map to position where "x-y" should be outputted (showing which records are displayed)</description>
+					<tags>*:inner</tags>
+					<sample_data>
+						<n0>1-10</n0>
+						<n1>20 to 30</n1>
+					</sample_data>
+				</tx_templavoila>
+			</field_browseBox_displayRange>
+			<field_browseBox_displayCount>
+				<tx_templavoila>
+					<title>Count</title>
+					<description>Map to position where the total number of found records should be outputted.</description>
+					<tags>*:inner</tags>
+					<sample_data>
+						<n0>123</n0>
+						<n1>3402</n1>
+					</sample_data>
+				</tx_templavoila>
+			</field_browseBox_displayCount>
+
+			<!--
+				Defining mappings for the browse box, page 1, 2, 3, 4 etc...:
+			-->
+			<field_browseBox_cellsContainer>
+				<type>array</type>
+				<section>1</section>
+				<tx_templavoila>
+					<title>Browse Box Element Container</title>
+					<description></description>
+					<tags>*:inner</tags>
+				</tx_templavoila>
+				<el>
+					<!-- Container for non-highlighted link -->
+					<field_browseBox_cellNormal>
+						<type>array</type>
+						<tx_templavoila>
+							<title>Browse Box Element, Normal</title>
+							<description></description>
+							<tags>*:outer</tags>
+						</tx_templavoila>
+						<el>
+							<field_url>
+								<type>attr</type>
+								<tx_templavoila>
+									<title>Link URL.</title>
+									<description>Map to a-tags href-attribute.</description>
+									<tags>a:attr:href</tags>
+									<sample_data>
+										<n0>javascript:alert('You click this link!');</n0>
+									</sample_data>
+								</tx_templavoila>									
+							</field_url>
+							<field_label>
+								<tx_templavoila>
+									<title>Link Label</title>
+									<description>Map to a-tags content; The link label.</description>
+									<tags>*:inner</tags>
+									<sample_data>
+										<n0>Page X</n0>
+									</sample_data>
+								</tx_templavoila>									
+							</field_label>
+						</el>
+					</field_browseBox_cellNormal>
+					<!-- Container for highlighted link -->
+					<field_browseBox_cellHighlighted>
+						<type>array</type>
+						<tx_templavoila>
+							<title>Browse Box Element, Highlighted</title>
+							<description></description>
+							<tags>*:outer</tags>
+						</tx_templavoila>
+						<el>
+							<field_url>
+								<type>attr</type>
+								<tx_templavoila>
+									<title>Link URL.</title>
+									<description>Map to a-tags href-attribute.</description>
+									<tags>a:attr:href</tags>
+									<sample_data>
+										<n0>javascript:alert('You click this link!');</n0>
+									</sample_data>
+								</tx_templavoila>									
+							</field_url>
+							<field_label>
+								<tx_templavoila>
+									<title>Link Label</title>
+									<description>Map to a-tags content; The link label.</description>
+									<tags>*:inner</tags>
+									<sample_data>
+										<n0>Page X</n0>
+									</sample_data>
+								</tx_templavoila>									
+							</field_label>
+						</el>
+					</field_browseBox_cellHighlighted>
+				</el>
+			</field_browseBox_cellsContainer>
+		</el>
+	</ROOT>
+</T3DataStructure>
