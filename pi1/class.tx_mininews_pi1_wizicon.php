@@ -24,12 +24,40 @@
 /** 
  * Class that adds the wizard icon.
  *
+ * $Id$
+ *
  * @author	Kasper Skårhøj <kasper@typo3.com>
  */
+/**
+ * [CLASS/FUNCTION INDEX of SCRIPT]
+ *
+ *
+ *
+ *   55: class tx_mininews_pi1_wizicon 
+ *   61:     function proc($wizardItems)	
+ *   81:     function includeLocalLang()	
+ *
+ * TOTAL FUNCTIONS: 2
+ * (This index is automatically created/updated by the extension "extdeveval")
+ *
+ */
 
-
-
+ 
+ 
+ 
+/**
+ * Class that adds the wizard icon.
+ * 
+ * @author	Kasper Skårhøj (kasper@typo3.com)
+ * @package TYPO3
+ * @subpackage tx_mininews
+ */
 class tx_mininews_pi1_wizicon {
+
+	/**
+	 * @param	[type]		$wizardItems: ...
+	 * @return	[type]		...
+	 */
 	function proc($wizardItems)	{
 		global $LANG;
 
@@ -44,6 +72,12 @@ class tx_mininews_pi1_wizicon {
 
 		return $wizardItems;
 	}
+
+	/**
+	 * [Describe function...]
+	 * 
+	 * @return	[type]		...
+	 */
 	function includeLocalLang()	{
 		include(t3lib_extMgm::extPath("mininews")."locallang.php");
 		return $LOCAL_LANG;

@@ -1,4 +1,5 @@
 <?php
+# TYPO3 CVS ID: $Id$
 if (!defined ("TYPO3_MODE")) 	die ("Access denied.");
 
 // Defining a new column for the mininews extension (goes into the tt_content table)

@@ -24,17 +24,51 @@
 /** 
  * Plugin 'Mini news' for the 'mininews' extension.
  *
+ * $Id$
+ *
  * @author	Kasper Skårhøj <kasper@typo3.com>
  */
-
+/**
+ * [CLASS/FUNCTION INDEX of SCRIPT]
+ *
+ *
+ *
+ *   62: class tx_mininews_pi1 extends tslib_pibase 
+ *   72:     function main($content,$conf)	
+ *   97:     function listView($content,$conf)	
+ *  175:     function makelist($res)	
+ *  193:     function makeListItem()	
+ *  209:     function makefrontpagelist($res)	
+ *  227:     function makeFrontPageListItem()	
+ *  243:     function singleView($content,$conf)	
+ *  267:     function getFieldContent($fN)	
+ *
+ * TOTAL FUNCTIONS: 8
+ * (This index is automatically created/updated by the extension "extdeveval")
+ *
+ */
 
 require_once(PATH_tslib."class.tslib_pibase.php");
 
+
+
+/**
+ * Plugin 'Mininews' for the "mininews" extension
+ * 
+ * @author	Kasper Skårhøj (kasper@typo3.com)
+ * @package TYPO3
+ * @subpackage tx_mininews
+ */
 class tx_mininews_pi1 extends tslib_pibase {
 	var $prefixId = "tx_mininews_pi1";		// Same as class name
 	var $scriptRelPath = "pi1/class.tx_mininews_pi1.php";	// Path to this script relative to the extension dir.
 	var $extKey = "mininews";	// The extension key.
-	
+
+	/**
+	 * @param	[type]		$content: ...
+	 * @param	[type]		$conf: ...
+	 * @return	[type]		...
+	 */
 	function main($content,$conf)	{
 		switch((string)$conf["CMD"])	{
 			case "singleView":
@@ -52,7 +86,14 @@ class tx_mininews_pi1 extends tslib_pibase {
 			break;
 		}
 	}
-	
+
+	/**
+	 * [Describe function...]
+	 * 
+	 * @param	[type]		$content: ...
+	 * @param	[type]		$conf: ...
+	 * @return	[type]		...
+	 */
 	function listView($content,$conf)	{
 		$this->conf=$conf;		// Setting the TypoScript passed to this function in $this->conf
 		$FP = $this->conf["CMD"]=="FP" ? 1 : $this->cObj->data["tx_mininews_frontpage_list"];
@@ -124,6 +165,13 @@ class tx_mininews_pi1 extends tslib_pibase {
 			return $fullTable;
 		}
 	}
+
+	/**
+	 * [Describe function...]
+	 * 
+	 * @param	[type]		$res: ...
+	 * @return	[type]		...
+	 */
 	function makelist($res)	{
 		$items=Array();
 			// Make list table rows
@@ -135,7 +183,13 @@ class tx_mininews_pi1 extends tslib_pibase {
 			'.implode(chr(10),$items).'
 			</DIV>';
 		return $out;
-	}	
+	}
+
+	/**
+	 * [Describe function...]
+	 * 
+	 * @return	[type]		...
+	 */
 	function makeListItem()	{
 		$out='
 				'.($this->internal["currentRow"]["datetime"] && !$this->conf["listView."]["disableDateDisplay"] ? '<P'.$this->pi_classParam("listrowField-datetime").'>'.$this->getFieldContent("datetime").'</P>':'').'
@@ -145,6 +199,13 @@ class tx_mininews_pi1 extends tslib_pibase {
 		$out = $this->pi_getEditIcon($out,"datetime,title,teaser,full_text","Edit news item");
 		return $out;
 	}
+
+	/**
+	 * [Describe function...]
+	 * 
+	 * @param	[type]		$res: ...
+	 * @return	[type]		...
+	 */
 	function makefrontpagelist($res)	{
 		$items=Array();
 			// Make list table rows
@@ -156,7 +217,13 @@ class tx_mininews_pi1 extends tslib_pibase {
 			'.implode(chr(10),$items).'
 			</DIV>';
 		return $out;
-	}	
+	}
+
+	/**
+	 * [Describe function...]
+	 * 
+	 * @return	[type]		...
+	 */
 	function makeFrontPageListItem()	{
 		$out='
 			<P'.$this->pi_classParam("fp_listrowField-datetime").'>'.$this->getFieldContent("datetime").'</P>
@@ -165,6 +232,14 @@ class tx_mininews_pi1 extends tslib_pibase {
 			';
 		return $out;
 	}
+
+	/**
+	 * [Describe function...]
+	 * 
+	 * @param	[type]		$content: ...
+	 * @param	[type]		$conf: ...
+	 * @return	[type]		...
+	 */
 	function singleView($content,$conf)	{
 		$this->conf=$conf;
 		$this->pi_loadLL();
@@ -181,7 +256,14 @@ class tx_mininews_pi1 extends tslib_pibase {
 		$this->pi_getEditPanel();
 	
 		return $content;
-	}	
+	}
+
+	/**
+	 * [Describe function...]
+	 * 
+	 * @param	[type]		$fN: ...
+	 * @return	[type]		...
+	 */
 	function getFieldContent($fN)	{
 		switch($fN) {
 			case "uid":

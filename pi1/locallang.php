@@ -2,6 +2,7 @@
 /**
  * Language labels for plugin "tx_mininews_pi1"
  * 
+ * TYPO3 CVS ID: $Id$
  * This file is detected by the translation tool.
  */
 

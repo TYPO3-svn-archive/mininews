@@ -2,6 +2,7 @@
 /**
  * Language labels for extension "mininews"
  * 
+ * TYPO3 CVS ID: $Id$
  * This file is detected by the translation tool.
  */
 

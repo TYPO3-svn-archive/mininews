@@ -24,3 +24,10 @@ plugin.tx_mininews_pi1 {
 	.tx-mininews-pi1 .tx-mininews-pi1-listrow P.tx-mininews-pi1-listrowField-teaser A:hover { color:black; text-decoration:none; }
   )
 }
+
+
+
+
+
+
+# TYPO3 CVS ID: $Id$
