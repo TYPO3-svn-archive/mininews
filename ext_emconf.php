@@ -13,7 +13,7 @@
 
 $EM_CONF[$_EXTKEY] = Array (
 	'title' => 'Mini news',
-	'description' => 'A quite simple news module based on the most recent concepts for plugins and using CSS stylesheets with Typo3.',
+	'description' => 'An over-simplistic news module based on the most recent concepts for plugins and using CSS stylesheets with Typo3.',
 	'category' => 'plugin',
 	'shy' => 0,
 	'dependencies' => 'cms',
