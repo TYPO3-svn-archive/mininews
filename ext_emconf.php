@@ -5,7 +5,7 @@
 # 
 # Auto generated 22-10-2003 23:23
 #
-# Hello guys and girls. Are we boring you?
+# Hello guys. Are we boring you?
 # 
 # Manual updates:
 # Only the data in the array - anything else is removed by next write
@@ -13,7 +13,7 @@
 
 $EM_CONF[$_EXTKEY] = Array (
 	'title' => 'Mini news',
-	'description' => 'An over-simplistic news module based on the most recent concepts for plugins and using CSS stylesheets with Typo3.',
+	'description' => 'A quite simple news module based on the most recent concepts for plugins and using CSS stylesheets with Typo3.',
 	'category' => 'plugin',
 	'shy' => 0,
 	'dependencies' => 'cms',
