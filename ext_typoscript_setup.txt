@@ -6,7 +6,7 @@ plugin.tx_mininews_pi1 {
 	results_at_a_time=3
 	maxPages=2
 	teaserLgd=200
-	HR_code = <HR>
+	HR_code = <hr />
   }
   frontPage < .listView
   frontPage.disableDateDisplay >

@@ -38,7 +38,7 @@
  *   81:     function includeLocalLang()	
  *
  * TOTAL FUNCTIONS: 2
- * (This index is automatically created/updated by the extension "extdeveval")
+ * (This index is automatically created/updated by the extension 'extdeveval')
  *
  */
 
@@ -55,39 +55,38 @@
 class tx_mininews_pi1_wizicon {
 
 	/**
-	 * @param	[type]		$wizardItems: ...
-	 * @return	[type]		...
+	 * Adds Mininews wizard item to the list in the DB content element wizard.
+	 *
+	 * @param	array		Array of wizard items, input
+	 * @return	array		Array of wizard items, output (modified)
 	 */
 	function proc($wizardItems)	{
 		global $LANG;
 
 		$LL = $this->includeLocalLang();
 
-		$wizardItems["plugins_tx_mininews_pi1"] = array(
-			"icon"=>t3lib_extMgm::extRelPath("mininews")."pi1/ce_wiz.gif",
-			"title"=>$LANG->getLLL("pi1_title",$LL),
-			"description"=>$LANG->getLLL("pi1_plus_wiz_description",$LL),
-			"params"=>"&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=mininews_pi1"
+		$wizardItems['plugins_tx_mininews_pi1'] = array(
+			'icon' => t3lib_extMgm::extRelPath('mininews').'pi1/ce_wiz.gif',
+			'title' => $LANG->getLLL('pi1_title',$LL),
+			'description' => $LANG->getLLL('pi1_plus_wiz_description',$LL),
+			'params' => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=mininews_pi1'
 		);
 
 		return $wizardItems;
 	}
 
 	/**
-	 * [Describe function...]
+	 * Include local lang file.
 	 * 
-	 * @return	[type]		...
+	 * @return	array		Local lang array.
 	 */
 	function includeLocalLang()	{
-		include(t3lib_extMgm::extPath("mininews")."locallang.php");
+		include(t3lib_extMgm::extPath('mininews').'locallang.php');
 		return $LOCAL_LANG;
 	}
 }
 
-
-
-if (defined("TYPO3_MODE") && $TYPO3_CONF_VARS[TYPO3_MODE]["XCLASS"]["ext/mininews/pi1/class.tx_mininews_pi1_wizicon.php"])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]["XCLASS"]["ext/mininews/pi1/class.tx_mininews_pi1_wizicon.php"]);
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/mininews/pi1/class.tx_mininews_pi1_wizicon.php'])	{
+	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/mininews/pi1/class.tx_mininews_pi1_wizicon.php']);
 }
-
 ?>

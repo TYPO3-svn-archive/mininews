@@ -1,4 +1,3 @@
-# TYPO3 CVS ID: $Id$
 #
 # Table structure for table 'tt_content'
 #
