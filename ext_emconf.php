@@ -4,13 +4,15 @@
 # Extension Manager/Repository config file for ext: 'mininews'
 # 
 # Auto generated 22-10-2003 23:23
+#
+# Hello guys. Are we boring you?
 # 
 # Manual updates:
 # Only the data in the array - anything else is removed by next write
 ########################################################################
 
 $EM_CONF[$_EXTKEY] = Array (
-	'title' => 'Mini news',
+	'title' => 'Mini-news',
 	'description' => 'A quite simple news module based on the most recent concepts for plugins and using CSS stylesheets with Typo3.',
 	'category' => 'plugin',
 	'shy' => 0,
