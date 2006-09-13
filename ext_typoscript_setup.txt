@@ -19,14 +19,15 @@ plugin.tx_mininews_pi1 {
 
 	_CSS_DEFAULT_STYLE (
 		.tx-mininews-pi1 .tx-mininews-pi1-listrow { margin-top: 5px; }
-		.tx-mininews-pi1 .tx-mininews-pi1-listrow P.tx-mininews-pi1-listrowField-title { font-weight:bold; }
-		.tx-mininews-pi1 .tx-mininews-pi1-listrow P.tx-mininews-pi1-listrowField-teaser { margin-bottom:15px; }
-		.tx-mininews-pi1 .tx-mininews-pi1-fp_listrow P.tx-mininews-pi1-fp_listrowField-title { font-weight:bold; }
-		.tx-mininews-pi1 .tx-mininews-pi1-fp_listrow P.tx-mininews-pi1-fp_listrowField-teaser { margin-top:0px; margin-bottom:10px; }
-		.tx-mininews-pi1 .tx-mininews-pi1-singleView P.tx-mininews-pi1-singleViewField-teaser { font-style:italic; margin-top:5px; margin-bottom:10px; }
-		.tx-mininews-pi1 .tx-mininews-pi1-browsebox P SPAN.tx-mininews-pi1-browsebox-strong { font-weight:bold; }
-		.tx-mininews-pi1 .tx-mininews-pi1-listrow P.tx-mininews-pi1-listrowField-teaser A { color:black; text-decoration:none; }
-		.tx-mininews-pi1 .tx-mininews-pi1-listrow P.tx-mininews-pi1-listrowField-teaser A:hover { color:black; text-decoration:none; }
+		P.tx-mininews-pi1-listrowField-title { font-weight: bold; }
+		P.tx-mininews-pi1-listrowField-teaser { margin-bottom:15px; }
+		P.tx-mininews-pi1-fp_listrowField-title { font-weight: bold; }
+		P.tx-mininews-pi1-fp_listrowField-teaser { margin-top: 0px; margin-bottom: 10px; }
+		.tx-mininews-pi1 .tx-mininews-pi1-singleView { margin-top: 5px; }
+		P.tx-mininews-pi1-singleViewField-teaser { font-style: italic; margin-top: 5px; margin-bottom: 10px; }
+		SPAN.tx-mininews-pi1-browsebox-strong { font-weight: bold; }
+		P.tx-mininews-pi1-listrowField-teaser A { color: black; text-decoration:none; }
+		P.tx-mininews-pi1-listrowField-teaser A:hover { color: black; text-decoration:none; }
 	)
 }
 

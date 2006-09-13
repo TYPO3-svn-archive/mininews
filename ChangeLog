@@ -8,3 +8,4 @@
 	* Added ChangeLog and phpEclipse project file
 	* Added option to disable search box from TypoScript
 	* Removed obsolete PHP language files
+	* Added <div>s around news items in list (easier to format items)

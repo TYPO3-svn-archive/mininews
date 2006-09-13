@@ -170,8 +170,6 @@ class tx_mininews_pi1 extends tslib_pibase {
 			$this->internal['results_at_a_time'] = t3lib_div::intInRange($lConf['results_at_a_time'],0,1000,3);		// Number of results to show in a listing.
 			$query = $this->pi_list_query('tx_mininews_news', false, $addWhere);
 			$res = $GLOBALS['TYPO3_DB']->sql_query($query);
-			//$this->internal['res_count'] = $GLOBALS['TYPO3_DB']->sql_num_rows($res);
-debug($this->internal);
 			$this->internal['currentTable'] = 'tx_mininews_news';
 
 				// Put the whole list together:
@@ -277,11 +275,14 @@ debug($this->internal);
 	 * @return	string		HTML content
 	 */
 	function makelist($res)	{
-		$items=Array();
+		$items = array();
 
 			// Make list table rows
+		$first = true;
+		$count = $GLOBALS['TYPO3_DB']->sql_num_rows($res); $cur = 1;
 		while($this->internal['currentRow'] = mysql_fetch_assoc($res))	{
-			$items[]=$this->makeListItem();
+			$items[] = $this->makeListItem($first, $cur == $count);
+			$first = false; $cur++;
 		}
 
 		$out = '
@@ -302,12 +303,21 @@ debug($this->internal);
 	 * @return	string		HTML content
 	 * @see makelist()
 	 */
-	function makeListItem()	{
+	function makeListItem($first, $last)	{
 		$out='
 				'.($this->internal['currentRow']['datetime'] && !$this->conf['listView.']['disableDateDisplay'] ? '<p'.$this->pi_classParam('listrowField-datetime').'>'.$this->getFieldContent('datetime').'</p>':'').'
 				<p'.$this->pi_classParam('listrowField-title').'>'.$this->pi_list_linkSingle($this->getFieldContent('title'),$this->internal['currentRow']['uid'],1).'</p>
 				<p'.$this->pi_classParam('listrowField-teaser').'>'.$this->pi_list_linkSingle(nl2br(trim(t3lib_div::fixed_lgd($this->getFieldContent('teaser_list'),$this->conf['listView.']['teaserLgd']))),$this->internal['currentRow']['uid'],1).'</p>
 			';
+		if ($first) {
+			$out = '<div' . $this->pi_classParam('listrow-first') . '>' . $out . '</div>';
+		}
+		else if ($last) {
+			$out = '<div' . $this->pi_classParam('listrow-last') . '>' . $out . '</div>';
+		}
+		else {
+			$out = '<div' . $this->pi_classParam('listrow-normal') . '>' . $out . '</div>';
+		}
 		$out = $this->pi_getEditIcon($out,'datetime,title,teaser,full_text','Edit news item');
 		return $out;
 	}
@@ -322,8 +332,6 @@ debug($this->internal);
 
 			// Detecting template engine:
 		if (is_array($this->TA))	{	// TemplaVoila:
-#debug($this->TA);
-
 				// Create list of elements:
 			$elements='';
 			while($this->internal['currentRow'] = mysql_fetch_assoc($res))	{
@@ -347,12 +355,15 @@ debug($this->internal);
 					)
 				);
 		} else {	// Default:
-			$items=Array();
+			$items = array();
 
 				// Make list table rows
+			$first = true;
+			$count = $GLOBALS['TYPO3_DB']->sql_num_rows($res); $cur = 1;
 			while($this->internal['currentRow'] = mysql_fetch_assoc($res))	{
                 $this->pi_tmpPageId = $this->internal['currentRow']['pid'];
-				$items[]=$this->makeFrontPageListItem();
+				$items[]=$this->makeFrontPageListItem($first, $cur == $count);
+				$first = false; $cur++;
 			}
 
 			$out = '
@@ -371,15 +382,27 @@ debug($this->internal);
 	/**
 	 * Create single list item (frontpage)
 	 * 
+	 * @param $first <code>true</code> if first item
 	 * @return	string		HTML content
 	 * @see makefrontpagelist()
 	 */
-	function makeFrontPageListItem()	{
+	function makeFrontPageListItem($first, $last)	{
 		$out='
 			<p'.$this->pi_classParam('fp_listrowField-datetime').'>'.$this->getFieldContent('datetime').'</p>
 			<p'.$this->pi_classParam('fp_listrowField-title').'>'.$this->pi_list_linkSingle($this->getFieldContent('title'),$this->internal['currentRow']['uid'],1).'</p>
-			<p'.$this->pi_classParam('fp_listrowField-teaser').'>'.nl2br(trim(t3lib_div::fixed_lgd($this->getFieldContent('teaser_list'),$this->conf['frontPage.']['teaserLgd']))).' '.$this->pi_list_linkSingle($this->pi_getLL('teaser_readMore','',TRUE),$this->internal['currentRow']['uid'],1).'</p>
+			<p'.$this->pi_classParam('fp_listrowField-teaser').'>'.nl2br(trim(t3lib_div::fixed_lgd($this->getFieldContent('teaser_list'),$this->conf['frontPage.']['teaserLgd']))).'
+			<span'.$this->pi_classParam('fp_listrowField-more-link').'>'.$this->pi_list_linkSingle($this->pi_getLL('teaser_readMore','',TRUE),$this->internal['currentRow']['uid'],1).'</span></p>
 			';
+		if ($first) {
+			$out = '<div' . $this->pi_classParam('fp_listrow-first') . '>' . $out . '</div>';
+		}
+		else if ($last) {
+			$out = '<div' . $this->pi_classParam('fp_listrow-last') . '>' . $out . '</div>';
+		}
+		else {
+			$out = '<div' . $this->pi_classParam('fp_listrow-normal') . '>' . $out . '</div>';
+		}
+
 		return $out;
 	}
 
@@ -419,7 +442,7 @@ debug($this->internal);
 			<!--
 				Single view of mininews item:
 			-->
-			<div'.$this->pi_classParam('singleView').' style="margin-top: 5px;">
+			<div'.$this->pi_classParam('singleView').'>
 					'.($this->internal['currentRow']['datetime'] && !$this->conf['singleView.']['disableDateDisplay'] ? '
 				<p'.$this->pi_classParam('singleViewField-datetime').'>'.$this->getFieldContent('datetime').'</p>':'').'
 				<h2>'.$this->pi_getEditIcon($this->getFieldContent('title'),'datetime,title').'</h2>
