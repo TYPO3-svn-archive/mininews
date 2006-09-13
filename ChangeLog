@@ -1,0 +1,9 @@
+2006-09-12	Dmitry Dulepov	<typo3@accio.lv>
+
+	* Converted all language files to xml
+	* Fixed: unable to include FP listing through TS
+	* Removed automatic link from news header when TV templating is used
+	* Removed link from the current page in page browser
+	* Removed "Previous" link
+	* Added ChangeLog and phpEclipse project file
+	* Added option to disable search box from TypoScript

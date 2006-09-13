@@ -43,7 +43,8 @@
  */
 
  
- 
+require_once(PATH_typo3.'sysext/lang/lang.php');
+
  
 /**
  * Class that adds the wizard icon.
@@ -81,8 +82,14 @@ class tx_mininews_pi1_wizicon {
 	 * @return	array		Local lang array.
 	 */
 	function includeLocalLang()	{
-		include(t3lib_extMgm::extPath('mininews').'locallang.php');
-		return $LOCAL_LANG;
+		if (isset($GLOBALS['LANG'])) {
+			$lang = $GLOBALS['LANG'];
+		}
+		else {
+			$lang = t3lib_div::makeInstance('language');
+			$lang->init($GLOBALS['BE_USER']->uc['lang']);
+		}
+		return $lang->readLLFile('EXT:mininews/locallang.xml');
 	}
 }
 

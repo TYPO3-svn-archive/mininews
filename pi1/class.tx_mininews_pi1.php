@@ -35,15 +35,15 @@
  *
  *
  *   73: class tx_mininews_pi1 extends tslib_pibase 
- *   93:     function main($content,$conf)	
- *  118:     function listView($content,$conf)	
- *  209:     function templaVoilaList($res)	
- *  271:     function makelist($res)	
- *  297:     function makeListItem()	
- *  313:     function makefrontpagelist($res)	
- *  367:     function makeFrontPageListItem()	
- *  383:     function singleView($content,$conf)	
- *  430:     function getFieldContent($fN)	
+ *   93:     function main($content,$conf)
+ *  118:     function listView($content,$conf)
+ *  209:     function templaVoilaList($res)
+ *  271:     function makelist($res)
+ *  297:     function makeListItem()
+ *  313:     function makefrontpagelist($res)
+ *  367:     function makeFrontPageListItem()
+ *  383:     function singleView($content,$conf)
+ *  430:     function getFieldContent($fN)
  *
  * TOTAL FUNCTIONS: 9
  * (This index is automatically created/updated by the extension "extdeveval")
@@ -77,11 +77,9 @@ class tx_mininews_pi1 extends tslib_pibase {
 	var $scriptRelPath = 'pi1/class.tx_mininews_pi1.php';	// Path to this script relative to the extension dir.
 	var $extKey = 'mininews';	// The extension key.
 
-
 		// TemplaVoila specific:
 	var $TA='';					// If TemplaVoila is used and a TO record is found, this array will be loaded with Template Array.
 	var $TMPLobj='';			// Template Object
-
 
 	/**
 	 * Main function, called from TypoScript:
@@ -116,10 +114,10 @@ class tx_mininews_pi1 extends tslib_pibase {
 	 * @return	string		HTML content from the extension!
 	 */
 	function listView($content,$conf)	{
-	
+
 			// Init FlexForm configuration for plugin:
 		$this->pi_initPIflexForm();
-		
+
 			// Looking for TemplaVoila TO record and if found, initialize template object:
 		if (t3lib_extMgm::isLoaded('templavoila'))	{
 			$field_templateObject = $this->pi_getFFvalue($this->cObj->data['pi_flexform'],'field_templateObject');
@@ -127,79 +125,90 @@ class tx_mininews_pi1 extends tslib_pibase {
 				$this->TMPLobj = t3lib_div::makeInstance('tx_templavoila_htmlmarkup');
 				$this->TA = $this->TMPLobj->getTemplateArrayForTO(intval($field_templateObject));
 				if (is_array($this->TA))	{
-					$this->TMPLobj->setHeaderBodyParts($this->TMPLobj->tDat['MappingInfo_head'],$this->TMPLobj->tDat['MappingData_head_cached']);				
+					$this->TMPLobj->setHeaderBodyParts($this->TMPLobj->tDat['MappingInfo_head'],$this->TMPLobj->tDat['MappingData_head_cached']);
 				}
 			}
 		}
-	
+
 			// Init:
-		$this->conf=$conf;		// Setting the TypoScript passed to this function in $this->conf
+		$this->conf = $conf;		// Setting the TypoScript passed to this function in $this->conf
 		$FP = $this->conf['CMD']=='FP' ? 1 : $this->cObj->data['tx_mininews_frontpage_list'];
 		$lConf = $this->conf[$FP?'frontPage.':'listView.'];	// Local settings for the listView function
 		$this->pi_loadLL();		// Loading the LOCAL_LANG values
-		
+
 			// Either render the list or single element:
 		if ($this->piVars['showUid'])	{	// If a single element should be displayed:
 			$this->internal['currentTable'] = 'tx_mininews_news';
 			$this->internal['currentRow'] = $this->pi_getRecord('tx_mininews_news',$this->piVars['showUid']);
-			
-			$content = $this->singleView($content,$conf).$lConf['HR_code'].'
-					<p>'.$this->pi_list_linkSingle($this->pi_getLL('back','Back',TRUE),0).'</p>';
+
+            $content = $this->singleView($content,$conf);
+            if (!is_array($this->TA))   {   // !TemplaVoila:
+                $content .= $lConf['HR_code'].'<p>'.$this->pi_list_linkSingle($this->pi_getLL('archive','News archive',TRUE),0).'</p>';
+            }
 			return $content;
 		} else {
 
 			if (!isset($this->piVars['pointer']))	$this->piVars['pointer']=0;
-	
+
 				// Initializing the query parameters:
-			list($this->internal['orderBy'],$this->internal['descFlag']) = explode(':','datetime:1');	//explode(':',$this->piVars['sort']);
-			$this->internal['results_at_a_time']=t3lib_div::intInRange($lConf['results_at_a_time'],0,1000,3);		// Number of results to show in a listing.
-			$this->internal['maxPages']=t3lib_div::intInRange($lConf['maxPages'],0,1000,2);		// The maximum number of 'pages' in the browse-box: 'Page 1', 'Page 2', etc.
-			$this->internal['searchFieldList']='title,teaser,full_text';
-			$this->internal['orderByList']='datetime,title';
-			
-			$addWhere = $FP?' AND front_page>0 ':'';
-			
-				// Get number of records:
-			$query = $this->pi_list_query('tx_mininews_news',1,$addWhere);
-			$res = mysql(TYPO3_db,$query);
-			if (mysql_error())	debug(array(mysql_error(),$query));
-			list($this->internal['res_count']) = mysql_fetch_row($res);
-	
+			list($this->internal['orderBy'], $this->internal['descFlag']) = explode(':','datetime:1');	//explode(':',$this->piVars['sort']);
+			$this->internal['maxPages'] = t3lib_div::intInRange($lConf['maxPages'],0,1000,2);		// The maximum number of 'pages' in the browse-box: 'Page 1', 'Page 2', etc.
+			$this->internal['searchFieldList'] = 'title,teaser,full_text';
+			$this->internal['orderByList'] = 'datetime,title';
+			$this->internal['dontLinkActivePage'] = true;
+
+			$addWhere = $FP ? ' AND front_page>0 ' : '';
+
+				// Get total number of news for page browser:
+			$query = $this->pi_list_query('tx_mininews_news', true, $addWhere);
+			$res = $GLOBALS['TYPO3_DB']->sql_query($query);
+			$row = $GLOBALS['TYPO3_DB']->sql_fetch_row($res);
+			$GLOBALS['TYPO3_DB']->sql_free_result($res);
+			$this->internal['res_count'] = $row[0];
+
 				// Make listing query, pass query to MySQL:
-			$query = $this->pi_list_query('tx_mininews_news',0,$addWhere);
-			$res = mysql(TYPO3_db,$query);
-			if (mysql_error())	debug(array(mysql_error(),$query));
+			$this->internal['results_at_a_time'] = t3lib_div::intInRange($lConf['results_at_a_time'],0,1000,3);		// Number of results to show in a listing.
+			$query = $this->pi_list_query('tx_mininews_news', false, $addWhere);
+			$res = $GLOBALS['TYPO3_DB']->sql_query($query);
+			//$this->internal['res_count'] = $GLOBALS['TYPO3_DB']->sql_num_rows($res);
+debug($this->internal);
 			$this->internal['currentTable'] = 'tx_mininews_news';
-	
+
 				// Put the whole list together:
-			$fullTable='';	// Clear var;
-			
+			$fullTable = '';	// Clear var;
+
 				// Determine mode of listing:
 			if ($FP)	{	// Frontpage listing:
-				$this->pi_tmpPageId = intval($this->cObj->data['pages']);
+                $this->pi_tmpPageId = intval($this->cObj->data['pages'] ? $this->cObj->data['pages'] : $this->conf['pidList']);
 					// Adds the whole list table
-				$fullTable.=$this->makefrontpagelist($res);
+				$fullTable .= $this->makefrontpagelist($res);
 			} else {	// Archive listing:
-			
+
 				if (is_array($this->TA))	{	// TemplaVoila:
-					$fullTable.=$this->templaVoilaList($res);
+					$fullTable .= $this->templaVoilaList($res);
 				} else {
 						// Adds the whole list table
-					$fullTable.=$this->makelist($res);
-					
+					$fullTable .= $this->makelist($res);
+
 						// Adds the search box:
-					$fullTable.=$this->pi_list_searchBox();
-						
-						// Adds the result browser:
-					$fullTable.=$this->pi_list_browseresults();
+					if (!$lConf['disableSearch']) {
+						$fullTable .= $this->pi_list_searchBox();
+					}
+
+					if ($this->internal['res_count'] > $lConf['results_at_a_time']) {
+							// Adds the result browser:
+						$this->pi_alwaysPrev = -1;
+						$fullTable .= $this->pi_list_browseresults();
+					}
 				}
 			}
-			
+			$GLOBALS['TYPO3_DB']->sql_free_result($res);
+
 				// Returns the content from the plugin.
 			return $fullTable;
 		}
 	}
-	
+
 	/**
 	 * Compile the list of items (archive), using TemplaVoila
 	 * 
@@ -236,17 +245,16 @@ class tx_mininews_pi1 extends tslib_pibase {
 				$this->TA['sub']['sArchive']['sub']['field_browseBox_cellsContainer']['sub'][$pointer==$a?'field_browseBox_cellHighlighted':'field_browseBox_cellNormal'],
 				array(
 					'field_url' => $this->pi_linkTP_keepPIvars_url(array('pointer'=>($a?$a:'')),$this->pi_isOnlyFields($this->pi_isOnlyFields)),
-					'field_label' => trim($this->pi_getLL('pi_list_browseresults_page','Page',TRUE).' '.($a+1)),
+					'field_label' => $this->pi_getLL('pi_list_browseresults_page') . ' ' .  ($a + 1),
 				)
 			);
 		}
-		
+
 		$pR1 = $pointer*$results_at_a_time+1;
 		$pR2 = $pointer*$results_at_a_time+$results_at_a_time;
 		$rangeLabel = $pR1.'-'.min(array($this->internal['res_count'],$pR2));
-		
-		
-			// Wrap the elements in their containers:			
+
+			// Wrap the elements in their containers:
 		$out = $this->TMPLobj->mergeDataArrayToTemplateArray(
 				$this->TA['sub']['sArchive'],
 				array(
@@ -257,8 +265,8 @@ class tx_mininews_pi1 extends tslib_pibase {
 					'field_browseBox_displayRange' => $rangeLabel,
 					'field_browseBox_displayCount' => $this->internal['res_count']
 				)
-			);	
-			
+			);
+
 		return $out;
 	}
 
@@ -270,21 +278,21 @@ class tx_mininews_pi1 extends tslib_pibase {
 	 */
 	function makelist($res)	{
 		$items=Array();
-		
+
 			// Make list table rows
 		while($this->internal['currentRow'] = mysql_fetch_assoc($res))	{
 			$items[]=$this->makeListItem();
 		}
-	
+
 		$out = '
-		
+
 		<!--
 			Archive listing of mininews:
 		-->
-		<div'.$this->pi_classParam('listrow').' style="margin-top: 5px;">
+		<div'.$this->pi_classParam('listrow').'>
 			'.implode(chr(10),$items).'
 		</div>';
-		
+
 		return $out;
 	}
 
@@ -319,18 +327,19 @@ class tx_mininews_pi1 extends tslib_pibase {
 				// Create list of elements:
 			$elements='';
 			while($this->internal['currentRow'] = mysql_fetch_assoc($res))	{
+                $this->pi_tmpPageId = $this->internal['currentRow']['pid'];
 				$elements.=$this->TMPLobj->mergeDataArrayToTemplateArray(
 					$this->TA['sub']['sFrontpage']['sub']['field_fpListing']['sub']['element_even'],
 					array(
 						'field_date' => $this->getFieldContent('datetime'),
-						'field_header' => $this->pi_list_linkSingle($this->getFieldContent('title'),$this->internal['currentRow']['uid'],1),
+                        'field_header' => $this->getFieldContent('title'),
 						'field_teaser' => nl2br(trim(t3lib_div::fixed_lgd($this->getFieldContent('teaser_list'),$this->conf['frontPage.']['teaserLgd']))),
 						'field_url' => $this->pi_list_linkSingle('',$this->internal['currentRow']['uid'],TRUE,array(),TRUE)
 					)
 				);
 			}
 
-				// Wrap the elements in their container:			
+				// Wrap the elements in their container:
 			$out = $this->TMPLobj->mergeDataArrayToTemplateArray(
 					$this->TA['sub']['sFrontpage'],
 					array(
@@ -339,14 +348,15 @@ class tx_mininews_pi1 extends tslib_pibase {
 				);
 		} else {	// Default:
 			$items=Array();
-			
+
 				// Make list table rows
 			while($this->internal['currentRow'] = mysql_fetch_assoc($res))	{
+                $this->pi_tmpPageId = $this->internal['currentRow']['pid'];
 				$items[]=$this->makeFrontPageListItem();
 			}
-		
+
 			$out = '
-			
+
 			<!--
 				Frontpage listing of mininews:
 			-->
@@ -354,7 +364,7 @@ class tx_mininews_pi1 extends tslib_pibase {
 				'.implode(chr(10),$items).'
 			</div>';
 		}
-		
+
 		return $out;
 	}
 
@@ -383,11 +393,11 @@ class tx_mininews_pi1 extends tslib_pibase {
 	function singleView($content,$conf)	{
 		$this->conf=$conf;
 		$this->pi_loadLL();
-	
+
 			// This sets the title of the page for use in indexed search results:
 		if ($this->internal['currentRow']['title'])	$GLOBALS['TSFE']->indexedDocTitle=$this->internal['currentRow']['title'];
 
-		
+
 			// Detecting template engine:
 		if (is_array($this->TA))	{	// TemplaVoila:
 
@@ -403,9 +413,9 @@ class tx_mininews_pi1 extends tslib_pibase {
 				)
 			);
 		} else {	// Default:
-				
+
 			$content='
-			
+
 			<!--
 				Single view of mininews item:
 			-->
@@ -417,7 +427,7 @@ class tx_mininews_pi1 extends tslib_pibase {
 				'.$this->pi_getEditIcon($this->getFieldContent('full_text'),'full_text').'
 			</div>';
 		}
-	
+
 		return $content.$this->pi_getEditPanel();
 	}
 
