@@ -20,7 +20,11 @@
             <label index="tx_mininews_news.full_text">Full story:</label>
             <label index="tx_mininews_news.full_text.W.RTE">Full screen Rich Text Editing</label>
             <label index="tx_mininews_news.front_page">Show on front page?</label>
-            <label index="tt_content.pi_flexform.select_template">Template Object for formatting:</label>
+            <label index="tt_content.pi_flexform.select_template">Template object for formatting:</label>
+            <label index="storage.page">Page where news records stored:</label>
+            <label index="recursive">Look for records recursively (slow!):</label>
+            <label index="disable.search">Disable search:</label>
+            <label index="results_at_a_time">Results at a time:</label>
         </languageKey>
         <languageKey index="dk" type="array">
             <label index="tt_content.list_type">Mininyheder</label>
