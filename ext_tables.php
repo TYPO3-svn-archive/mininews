@@ -3,6 +3,7 @@
 if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 
 // Defining a new column for the mininews extension (goes into the tt_content table)
+/*
 $tempColumns = Array (
 	'tx_mininews_frontpage_list' => Array (		
 		'exclude' => 1,		
@@ -22,11 +23,12 @@ t3lib_div::loadTCA('tt_content');
 
 // ... then add the column for mininews which was defined above:
 t3lib_extMgm::addTCAcolumns('tt_content',$tempColumns,1);
-
+*/
 // ... and finally add the new column definition to the list of fields shown for the mininews plugin:
 // (This also removes the presence of the normally shown fields, 'layout' and 'select_key')
 $TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1']='layout,select_key';
-$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1']='tx_mininews_frontpage_list;;;;1-1-1,pi_flexform';
+//$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1']='tx_mininews_frontpage_list;;;;1-1-1,pi_flexform';
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1']='pi_flexform';
 t3lib_extMgm::addPiFlexFormValue($_EXTKEY.'_pi1', 'FILE:EXT:mininews/flexform_ds.xml');
 
 // Now, define a new table for the extension. Name: 'tx_mininews_news'

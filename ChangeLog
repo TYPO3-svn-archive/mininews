@@ -1,3 +1,12 @@
+2006-01-01	Dmitry Dulepov	<typo3@accio.lv>
+
+	* Plugin interactive configuration is fully moved to flexform
+	* Added more link fields to TemplaVoila data structure
+	* Code modified to work with new flexform configuration fields
+	* Modified template to correctly map with links
+	* Started documentation
+	* Modified news record icon
+
 2006-09-13	Dmitry Dulepov	<typo3@accio.lv>
 
 	* Converted all language files to xml
