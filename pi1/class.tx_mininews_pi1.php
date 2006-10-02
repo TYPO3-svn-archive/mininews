@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *  
-*  (c) 2002-2004 Kasper Skårhøj (kasper@typo3.com)
+*  (c) 2002-2004 Kasper Skï¿½rhï¿½j (kasper@typo3.com)
 *  All rights reserved
 *
 *  This script is part of the Typo3 project. The Typo3 project is 
@@ -27,7 +27,7 @@
  * $Id$
  * XHTML compliant
  *
- * @author	Kasper Skårhøj <kasper@typo3.com>
+ * @author	Kasper Skï¿½rhï¿½j <kasper@typo3.com>
  * @author	Dmitry Dulepov <typo3@accio.lv>
  */
 /**
@@ -67,7 +67,7 @@ if (t3lib_extMgm::isLoaded('templavoila'))	{
 /**
  * Plugin 'Mininews' for the "mininews" extension
  * 
- * @author	Kasper Skårhøj (kasper@typo3.com)
+ * @author	Kasper Skï¿½rhï¿½j (kasper@typo3.com)
  * @package TYPO3
  * @subpackage tx_mininews
  */
@@ -138,6 +138,9 @@ class tx_mininews_pi1 extends tslib_pibase {
 		$this->fetchConfigValue('field_recursive', 'recursive');
 		$this->fetchConfigValue('field_disableSearch', 'listView.|disableSearch');
 		$this->fetchConfigValue('field_results', $this->sectionName . '|results_at_a_time');
+		if ($this->conf['CMD'] == 'FP') {
+			$this->fetchConfigValue('field_archivePage', 'frontPage.|archivePid');
+		}
 
 		if (isset($GLOBALS['TSFE']->config['disablePrefixComment'])) {
 			$this->disablePrefixComment = intval($GLOBALS['TSFE']->config['disablePrefixComment']);
@@ -222,7 +225,6 @@ class tx_mininews_pi1 extends tslib_pibase {
 
 				// Determine mode of listing:
 			if ($FP)	{	// Frontpage listing:
-                $this->pi_tmpPageId = intval($this->conf['pidList']);
 					// Adds the whole list table
 				$fullTable .= $this->makefrontpagelist($res);
 			} else {	// Archive listing:
@@ -377,12 +379,13 @@ class tx_mininews_pi1 extends tslib_pibase {
 	 */
 	function makefrontpagelist($res)	{
 
+        $this->pi_tmpPageId = $this->conf['frontPage.']['archivePid'];
+
 			// Detecting template engine:
 		if (is_array($this->TA))	{	// TemplaVoila:
 				// Create list of elements:
 			$elements = '';
 			while($this->internal['currentRow'] = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))	{
-                $this->pi_tmpPageId = $this->internal['currentRow']['pid'];
                 $link = $this->pi_list_linkSingle('', $this->internal['currentRow']['uid'], true, array(), true);
 				$elements .= $this->TMPLobj->mergeDataArrayToTemplateArray(
 					$this->TA['sub']['sFrontpage']['sub']['field_fpListing']['sub']['element_even'],
@@ -410,7 +413,6 @@ class tx_mininews_pi1 extends tslib_pibase {
 			$first = true;
 			$count = $GLOBALS['TYPO3_DB']->sql_num_rows($res); $cur = 1;
 			while($this->internal['currentRow'] = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res))	{
-                $this->pi_tmpPageId = $this->internal['currentRow']['pid'];
 				$items[] = $this->makeFrontPageListItem($first, $cur == $count);
 				$first = false; $cur++;
 			}

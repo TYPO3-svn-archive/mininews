@@ -7,7 +7,7 @@ t3lib_div::loadTCA('tt_content');
 
 // ... and finally add the new column definition to the list of fields shown for the mininews plugin:
 // (This also removes the presence of the normally shown fields, 'layout' and 'select_key')
-$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1']='layout,select_key';
+$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1']='layout,select_key,pages';
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1']='pi_flexform';
 t3lib_extMgm::addPiFlexFormValue($_EXTKEY.'_pi1', 'FILE:EXT:mininews/flexform_ds.xml');
 

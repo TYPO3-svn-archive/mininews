@@ -1,4 +1,8 @@
-2006-01-01	Dmitry Dulepov	<typo3@accio.lv>
+2006-10-02	Dmitry Dulepov	<typo3@accio.lv>
+
+	* Added configuration entry for archive PID in flexform
+
+2006-10-01	Dmitry Dulepov	<typo3@accio.lv>
 
 	* Plugin interactive configuration is fully moved to flexform
 	* Added more link fields to TemplaVoila data structure

@@ -14,6 +14,7 @@ plugin.tx_mininews_pi1 {
  	}
  	frontPage < .listView
  	frontPage.disableDateDisplay >
+	frontPage.disableSearch >
 
 	singleView.disableDateDisplay = 0
 

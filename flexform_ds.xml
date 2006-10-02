@@ -36,9 +36,26 @@
 	      		<multiple>0</multiple>
 	      		<minitems>0</minitems>
 	      		<maxitems>1</maxitems>
+	      		<size>1</size>
       		</config>
       	</TCEforms>
       </field_storagePage>
+      <field_archivePage>
+      	<TCEforms>
+			<label>LLL:EXT:mininews/locallang_db.xml:archive.page</label>
+			<displayCond>FIELD:field_mode:=:FP</displayCond>
+      		<config>
+	      		<type>group</type>
+	      		<internal_type>db</internal_type>
+	      		<allowed>pages</allowed>
+	      		<prepand_tname>0</prepand_tname>
+	      		<multiple>0</multiple>
+	      		<minitems>1</minitems>
+	      		<maxitems>1</maxitems>
+	      		<size>1</size>
+      		</config>
+      	</TCEforms>
+      </field_archivePage>
       <field_results>
       	<TCEforms>
 			<label>LLL:EXT:mininews/locallang_db.xml:results_at_a_time</label>
