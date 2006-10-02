@@ -1,5 +1,9 @@
 2006-10-02	Dmitry Dulepov	<typo3@accio.lv>
 
+	* Released version 1.0.0
+
+2006-10-02	Dmitry Dulepov	<typo3@accio.lv>
+
 	* Added configuration entry for archive PID in flexform
 	* Added export of mapped example template
 	* Documentation finalized
