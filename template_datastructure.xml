@@ -28,7 +28,7 @@
 					<field_header>
 						<tx_templavoila>
 							<title>Header</title>
-							<description>Header field.</description>
+							<description>Header field</description>
 							<tags>*:inner</tags>
 							<sample_data>
 								<n0>People on mars!</n0>
@@ -39,7 +39,7 @@
 					<field_teaser>
 						<tx_templavoila>
 							<title>Teaser</title>
-							<description>Teaser field.</description>
+							<description>Teaser field</description>
 							<tags>*:inner</tags>
 							<sample_data>
 								<n0>Capthurim Chanaan vero genuit Sidonem primogenitum et Heth Iebuseum quoque </n0>
@@ -54,8 +54,8 @@
 							<sample_data>
 								<n0>
 									<![CDATA[
-										<p><strong>Filii Ham Chus et Mesraim Phut et Chanaan</strong> filii autem Chus Saba et Evila Sabatha et Rechma et Sabathaca porro filii Rechma Saba et Dadan Chus autem genuit Nemrod iste coepit esse potens in terra Mesraim vero genuit Ludim et Anamim et Laabim et Nepthuim Phethrosim quoque et Chasluim de quibus egressi sunt Philisthim et.</p>
-										<p>Capthurim Chanaan vero genuit Sidonem primogenitum et Heth Iebuseum quoque et Amorreum et Gergeseum Evheumque et Aruceum et Asineum Aradium quoque et Samareum et Ematheum filii Sem Aelam et Assur et Arfaxad et Lud et Aram et Us et Hul et Gothor et Mosoch Arfaxad autem genuit Sala qui et ipse genuit Heber porro Heber nati sunt duo filii nomen uni Phaleg quia in diebus eius divisa est terra et nomen fratris eius Iectan Iectan autem genuit Helmodad et Saleph et Asermoth et Iare Aduram quoque et Uzal et Decla Ebal etiam et Abimahel et Saba necnon et Ophir et Evila et Iobab omnes isti filii Iectan Sem Arfaxad Sale.</p>
+										<p><strong>Filii Ham Chus et Mesraim Phut et Chanaan</strong> filii autem Chus Saba et Evila Sabatha et Rechma et Sabathaca porro filii Rechma Saba et Dadan Chus autem genuit Nemrod iste coepit esse potens in terra Mesraim vero genuit Ludim et Anamim et Laabim et Nepthuim Phethrosim quoque et Chasluim de quibus egressi sunt Philisthim et</p>
+										<p>Capthurim Chanaan vero genuit Sidonem primogenitum et Heth Iebuseum quoque et Amorreum et Gergeseum Evheumque et Aruceum et Asineum Aradium quoque et Samareum et Ematheum filii Sem Aelam et Assur et Arfaxad et Lud et Aram et Us et Hul et Gothor et Mosoch Arfaxad autem genuit Sala qui et ipse genuit Heber porro Heber nati sunt duo filii nomen uni Phaleg quia in diebus eius divisa est terra et nomen fratris eius Iectan Iectan autem genuit Helmodad et Saleph et Asermoth et Iare Aduram quoque et Uzal et Decla Ebal etiam et Abimahel et Saba necnon et Ophir et Evila et Iobab omnes isti filii Iectan Sem Arfaxad Sale</p>
 									]]>
 								</n0>
 							</sample_data>
@@ -64,8 +64,8 @@
 					<field_url>
 						<type>attr</type>
 						<tx_templavoila>
-							<title>"Back" URL.</title>
-							<description>Map to a-tags href-attribute of the link back to archive listing.</description>
+							<title>"Back" URL</title>
+							<description>Map to a-tags href-attribute of the link back to archive listing</description>
 							<tags>a:attr:href</tags>
 							<sample_data>
 								<n0>javascript:alert('You click this link!');</n0>
@@ -118,7 +118,7 @@
 									<field_header>
 										<tx_templavoila>
 											<title>Header</title>
-											<description>Header field.</description>
+											<description>Header field</description>
 											<tags>*:inner</tags>
 											<sample_data>
 												<n0>People on mars!</n0>
@@ -129,7 +129,7 @@
 									<field_teaser>
 										<tx_templavoila>
 											<title>Teaser</title>
-											<description>Teaser field.</description>
+											<description>Teaser field</description>
 											<tags>*:inner</tags>
 											<sample_data>
 												<n0>Capthurim Chanaan vero genuit Sidonem primogenitum et Heth Iebuseum quoque </n0>
@@ -139,7 +139,7 @@
 									<field_url>
 										<type>attr</type>
 										<tx_templavoila>
-											<title>"MORE" URL.</title>
+											<title>"MORE" URL</title>
 											<description>Map to a-tags href-attribute of the link pointing to the archive!</description>
 											<tags>a:attr:href</tags>
 											<sample_data>
@@ -147,6 +147,17 @@
 											</sample_data>
 										</tx_templavoila>									
 									</field_url>
+									<field_url2>
+										<type>attr</type>
+										<tx_templavoila>
+											<title>"MORE" URL #2</title>
+											<description>Map to a-tags href-attribute of the link pointing to the archive!</description>
+											<tags>a:attr:href</tags>
+											<sample_data>
+												<n0>javascript:alert('You click this link!');</n0>
+											</sample_data>
+										</tx_templavoila>									
+									</field_url2>
 								</el>							
 							</element_even>
 						</el>

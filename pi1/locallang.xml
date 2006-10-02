@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Labels for pi1 plugin</description>
+        <type>module</type>
+        <csh_table></csh_table>
+        <labelContext type="array">
+        </labelContext>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="pi_list_browseresults_prev">&lt; Previous</label>
+            <label index="pi_list_browseresults_page">Page</label>
+            <label index="pi_list_browseresults_next">Next &gt;</label>
+            <label index="pi_list_searchBox_search">Search</label>
+            <label index="pi_list_browseresults_displays">Displaying results ###SPAN_BEGIN###%s to %s&lt;/span&gt; out of ###SPAN_BEGIN###%s&lt;/span&gt;</label>
+            <label index="teaser_readMore">[more...]</label>
+            <label index="archive">News archive</label>
+        </languageKey>
+        <languageKey index="dk" type="array">
+            <label index="pi_list_browseresults_prev">&lt; Forrige</label>
+            <label index="pi_list_browseresults_page">Side</label>
+            <label index="pi_list_browseresults_next">Næste &gt;</label>
+            <label index="pi_list_searchBox_search">Søg</label>
+            <label index="pi_list_browseresults_displays">Viser resultaterne ###SPAN_BEGIN###%s til %s&lt;/span&gt; ud af ###SPAN_BEGIN###%s&lt;/span&gt;</label>
+            <label index="teaser_readMore">[mere...]</label>
+            <label index="archive">Tilbage</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="pi_list_browseresults_prev">&lt; Vorherige</label>
+            <label index="pi_list_browseresults_page">Seite</label>
+            <label index="pi_list_browseresults_next">Nächste &gt;</label>
+            <label index="pi_list_searchBox_search">Suche</label>
+            <label index="pi_list_browseresults_displays">Suchergebnis ###SPAN_BEGIN###%s bis %s&lt;/span&gt; von insg. ###SPAN_BEGIN%s&lt;/span&gt;</label>
+            <label index="teaser_readMore">[mehr...]</label>
+            <label index="archive">Zurück</label>
+        </languageKey>
+        <languageKey index="no" type="array">
+            <label index="pi_list_browseresults_prev">&lt; Forrige</label>
+            <label index="pi_list_browseresults_page">Side</label>
+            <label index="pi_list_browseresults_next">Neste &gt;</label>
+            <label index="pi_list_searchBox_search">Søk</label>
+            <label index="pi_list_browseresults_displays">Viser resultatene ###SPAN_BEGIN###%s til %s&lt;/span&gt; av ###SPAN_BEGIN###%s&lt;/span&gt;</label>
+            <label index="teaser_readMore">[mer...]</label>
+            <label index="archive">Tilbake</label>
+        </languageKey>
+        <languageKey index="it" type="array">
+            <label index="pi_list_browseresults_prev">&lt; Indietro</label>
+            <label index="pi_list_browseresults_page">Pagina</label>
+            <label index="pi_list_browseresults_next">Avanti &gt;</label>
+            <label index="pi_list_searchBox_search">Cerca</label>
+            <label index="pi_list_browseresults_displays">Risultati ###SPAN_BEGIN### da %s a %s&lt;/span&gt; su ###SPAN_BEGIN###%s&lt;/span&gt;</label>
+            <label index="teaser_readMore">[continua...]</label>
+            <label index="archive">Indietro</label>
+        </languageKey>
+        <languageKey index="fr" type="array">
+            <label index="pi_list_browseresults_prev">&lt; Précédent</label>
+            <label index="pi_list_browseresults_page">Page</label>
+            <label index="pi_list_browseresults_next">Suivant &gt;</label>
+            <label index="pi_list_searchBox_search">Rechercher</label>
+            <label index="teaser_readMore">[suite]</label>
+            <label index="archive">Retour</label>
+        </languageKey>
+        <languageKey index="es" type="array">
+        </languageKey>
+        <languageKey index="nl" type="array">
+            <label index="pi_list_browseresults_prev">&lt; Vorige</label>
+            <label index="pi_list_browseresults_page">Pagina</label>
+            <label index="pi_list_browseresults_next">Volgende &gt;</label>
+            <label index="pi_list_searchBox_search">Zoek</label>
+            <label index="pi_list_browseresults_displays">Resultaten ###SPAN_BEGIN###%s tot en met %s&lt;/span&gt; van ###SPAN_BEGIN###%s&lt;/span&gt;</label>
+            <label index="teaser_readMore">[meer...]</label>
+            <label index="archive">Terug</label>
+        </languageKey>
+        <languageKey index="cz" type="array">
+            <label index="pi_list_browseresults_prev">&lt; Předchozí</label>
+            <label index="pi_list_browseresults_page">Strana</label>
+            <label index="pi_list_browseresults_next">Další &gt;</label>
+            <label index="pi_list_searchBox_search">Hledat</label>
+            <label index="pi_list_browseresults_displays">Výsledky ###SPAN_BEGIN###%s do %s&lt;/span&gt; z ###SPAN_BEGIN###%s&lt;/span&gt;</label>
+            <label index="teaser_readMore">[více ...]</label>
+            <label index="archive">Zpět</label>
+        </languageKey>
+        <languageKey index="pl" type="array">
+            <label index="pi_list_browseresults_prev">&lt; Poprzednia</label>
+            <label index="pi_list_browseresults_page">Strona</label>
+            <label index="pi_list_browseresults_next">Następna &gt;</label>
+            <label index="pi_list_searchBox_search">Szukaj</label>
+            <label index="pi_list_browseresults_displays">Wyświetlenie rezultatów od ###SPAN_BEGIN###%s do %s&lt;/span&gt; z ###SPAN_BEGIN###%s&lt;/span&gt;</label>
+            <label index="teaser_readMore">[więcej...]</label>
+            <label index="archive">Powrót</label>
+        </languageKey>
+        <languageKey index="si" type="array">
+        </languageKey>
+        <languageKey index="fi" type="array">
+            <label index="pi_list_browseresults_prev">&lt; Edellinen</label>
+            <label index="pi_list_browseresults_page">Sivu</label>
+            <label index="pi_list_browseresults_next">Seuraava &gt;</label>
+            <label index="pi_list_searchBox_search">Etsi</label>
+            <label index="pi_list_browseresults_displays">Näytetään tulokset alkaen ###SPAN_BEGIN###%s ja %s saakka&lt;/span&gt; kaikkiaan ###SPAN_BEGIN###%s&lt;/span&gt;</label>
+            <label index="teaser_readMore">[lisää ...]</label>
+            <label index="archive">Takaisin</label>
+        </languageKey>
+        <languageKey index="tr" type="array">
+            <label index="pi_list_browseresults_prev">&lt; Önceki</label>
+            <label index="pi_list_browseresults_page">Sayfa</label>
+            <label index="pi_list_browseresults_next">Sonraki &gt;</label>
+            <label index="pi_list_searchBox_search">Arama</label>
+            <label index="teaser_readMore">[devamı...]</label>
+            <label index="archive">Geri</label>
+        </languageKey>
+        <languageKey index="se" type="array">
+            <label index="pi_list_browseresults_prev">&lt; Tidigare</label>
+            <label index="pi_list_browseresults_page">Sida</label>
+            <label index="pi_list_browseresults_next">Nästa &gt;</label>
+            <label index="pi_list_searchBox_search">Sök</label>
+            <label index="pi_list_browseresults_displays">Visa resultat ###SPAN_BEGIN###%s till %s&lt;/span&gt; av totalt ###SPAN_BEGIN###%s&lt;/span&gt;</label>
+            <label index="teaser_readMore">[mera...]</label>
+            <label index="archive">Tillbaka</label>
+        </languageKey>
+        <languageKey index="pt" type="array">
+            <label index="pi_list_browseresults_prev">&lt; Anterior</label>
+            <label index="pi_list_browseresults_page">Página</label>
+            <label index="pi_list_browseresults_next">Próximo &gt;</label>
+            <label index="pi_list_searchBox_search">Pesquisar</label>
+            <label index="pi_list_browseresults_displays">Mostrando resultados de ###SPAN_BEGIN###%s até %s&lt;/span&gt; de ###SPAN_BEGIN###%s&lt;/span&gt;</label>
+            <label index="teaser_readMore">[mais...]</label>
+            <label index="archive">Voltar</label>
+        </languageKey>
+        <languageKey index="lv" type="array">
+            <label index="pi_list_browseresults_prev">&lt;&lt;</label>
+            <label index="pi_list_browseresults_page">Lapa</label>
+            <label index="pi_list_browseresults_next">&gt;&gt;</label>
+            <label index="pi_list_searchBox_search">Meklēt</label>
+            <label index="pi_list_browseresults_displays">Parādīt rezultātus no ###SPAN_BEGIN###%s līdz %s&lt;/span&gt; (kopā  ###SPAN_BEGIN###%s&lt;/span&gt;)</label>
+            <label index="teaser_readMore">[tālāk...]</label>
+            <label index="archive">Jaunumu arhīvs</label>
+        </languageKey>
+    </data>
+    <orig_hash type="array">
+        <languageKey index="default" type="array">
+            <label index="pi_list_browseresults_prev" type="integer">20121992</label>
+            <label index="pi_list_browseresults_page" type="integer">26464201</label>
+            <label index="pi_list_browseresults_next" type="integer">232350798</label>
+            <label index="pi_list_searchBox_search" type="integer">20138052</label>
+            <label index="pi_list_browseresults_displays" type="integer">152851483</label>
+            <label index="teaser_readMore" type="integer">36392957</label>
+            <label index="archive" type="integer">5603241</label>
+        </languageKey>
+        <languageKey index="dk" type="array">
+            <label index="pi_list_browseresults_prev" type="integer">20121992</label>
+            <label index="pi_list_browseresults_page" type="integer">26464201</label>
+            <label index="pi_list_browseresults_next" type="integer">232350798</label>
+            <label index="pi_list_searchBox_search" type="integer">20138052</label>
+            <label index="pi_list_browseresults_displays" type="integer">152851483</label>
+            <label index="teaser_readMore" type="integer">36392957</label>
+            <label index="archive" type="integer">5603241</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="pi_list_browseresults_prev" type="integer">20121992</label>
+            <label index="pi_list_browseresults_page" type="integer">26464201</label>
+            <label index="pi_list_browseresults_next" type="integer">232350798</label>
+            <label index="pi_list_searchBox_search" type="integer">20138052</label>
+            <label index="pi_list_browseresults_displays" type="integer">152851483</label>
+            <label index="teaser_readMore" type="integer">36392957</label>
+            <label index="archive" type="integer">5603241</label>
+        </languageKey>
+        <languageKey index="no" type="array">
+            <label index="pi_list_browseresults_prev" type="integer">20121992</label>
+            <label index="pi_list_browseresults_page" type="integer">26464201</label>
+            <label index="pi_list_browseresults_next" type="integer">232350798</label>
+            <label index="pi_list_searchBox_search" type="integer">20138052</label>
+            <label index="pi_list_browseresults_displays" type="integer">152851483</label>
+            <label index="teaser_readMore" type="integer">36392957</label>
+            <label index="archive" type="integer">5603241</label>
+        </languageKey>
+        <languageKey index="it" type="array">
+            <label index="pi_list_browseresults_prev" type="integer">20121992</label>
+            <label index="pi_list_browseresults_page" type="integer">26464201</label>
+            <label index="pi_list_browseresults_next" type="integer">232350798</label>
+            <label index="pi_list_searchBox_search" type="integer">20138052</label>
+            <label index="pi_list_browseresults_displays" type="integer">152851483</label>
+            <label index="teaser_readMore" type="integer">36392957</label>
+            <label index="archive" type="integer">5603241</label>
+        </languageKey>
+        <languageKey index="fr" type="array">
+            <label index="pi_list_browseresults_prev" type="integer">20121992</label>
+            <label index="pi_list_browseresults_page" type="integer">26464201</label>
+            <label index="pi_list_browseresults_next" type="integer">232350798</label>
+            <label index="pi_list_searchBox_search" type="integer">20138052</label>
+            <label index="teaser_readMore" type="integer">36392957</label>
+            <label index="archive" type="integer">5603241</label>
+        </languageKey>
+        <languageKey index="es" type="array">
+        </languageKey>
+        <languageKey index="nl" type="array">
+            <label index="pi_list_browseresults_prev" type="integer">20121992</label>
+            <label index="pi_list_browseresults_page" type="integer">26464201</label>
+            <label index="pi_list_browseresults_next" type="integer">232350798</label>
+            <label index="pi_list_searchBox_search" type="integer">20138052</label>
+            <label index="pi_list_browseresults_displays" type="integer">152851483</label>
+            <label index="teaser_readMore" type="integer">36392957</label>
+            <label index="archive" type="integer">5603241</label>
+        </languageKey>
+        <languageKey index="cz" type="array">
+            <label index="pi_list_browseresults_prev" type="integer">20121992</label>
+            <label index="pi_list_browseresults_page" type="integer">26464201</label>
+            <label index="pi_list_browseresults_next" type="integer">232350798</label>
+            <label index="pi_list_searchBox_search" type="integer">20138052</label>
+            <label index="pi_list_browseresults_displays" type="integer">152851483</label>
+            <label index="teaser_readMore" type="integer">36392957</label>
+            <label index="archive" type="integer">5603241</label>
+        </languageKey>
+        <languageKey index="pl" type="array">
+            <label index="pi_list_browseresults_prev" type="integer">20121992</label>
+            <label index="pi_list_browseresults_page" type="integer">26464201</label>
+            <label index="pi_list_browseresults_next" type="integer">232350798</label>
+            <label index="pi_list_searchBox_search" type="integer">20138052</label>
+            <label index="pi_list_browseresults_displays" type="integer">152851483</label>
+            <label index="teaser_readMore" type="integer">36392957</label>
+            <label index="archive" type="integer">5603241</label>
+        </languageKey>
+        <languageKey index="si" type="array">
+        </languageKey>
+        <languageKey index="fi" type="array">
+            <label index="pi_list_browseresults_prev" type="integer">20121992</label>
+            <label index="pi_list_browseresults_page" type="integer">26464201</label>
+            <label index="pi_list_browseresults_next" type="integer">232350798</label>
+            <label index="pi_list_searchBox_search" type="integer">20138052</label>
+            <label index="pi_list_browseresults_displays" type="integer">152851483</label>
+            <label index="teaser_readMore" type="integer">36392957</label>
+            <label index="archive" type="integer">5603241</label>
+        </languageKey>
+        <languageKey index="tr" type="array">
+            <label index="pi_list_browseresults_prev" type="integer">20121992</label>
+            <label index="pi_list_browseresults_page" type="integer">26464201</label>
+            <label index="pi_list_browseresults_next" type="integer">232350798</label>
+            <label index="pi_list_searchBox_search" type="integer">20138052</label>
+            <label index="teaser_readMore" type="integer">36392957</label>
+            <label index="archive" type="integer">5603241</label>
+        </languageKey>
+        <languageKey index="se" type="array">
+            <label index="pi_list_browseresults_prev" type="integer">20121992</label>
+            <label index="pi_list_browseresults_page" type="integer">26464201</label>
+            <label index="pi_list_browseresults_next" type="integer">232350798</label>
+            <label index="pi_list_searchBox_search" type="integer">20138052</label>
+            <label index="pi_list_browseresults_displays" type="integer">152851483</label>
+            <label index="teaser_readMore" type="integer">36392957</label>
+            <label index="archive" type="integer">5603241</label>
+        </languageKey>
+        <languageKey index="pt" type="array">
+            <label index="pi_list_browseresults_prev" type="integer">20121992</label>
+            <label index="pi_list_browseresults_page" type="integer">26464201</label>
+            <label index="pi_list_browseresults_next" type="integer">232350798</label>
+            <label index="pi_list_searchBox_search" type="integer">20138052</label>
+            <label index="pi_list_browseresults_displays" type="integer">152851483</label>
+            <label index="teaser_readMore" type="integer">36392957</label>
+            <label index="archive" type="integer">5603241</label>
+        </languageKey>
+        <languageKey index="lv" type="array">
+            <label index="pi_list_browseresults_prev" type="integer">20121992</label>
+            <label index="pi_list_browseresults_page" type="integer">26464201</label>
+            <label index="pi_list_browseresults_next" type="integer">232350798</label>
+            <label index="pi_list_searchBox_search" type="integer">20138052</label>
+            <label index="pi_list_browseresults_displays" type="integer">152851483</label>
+            <label index="teaser_readMore" type="integer">36392957</label>
+            <label index="archive" type="integer">5603241</label>
+        </languageKey>
+    </orig_hash>
+    <orig_text type="array">
+        <languageKey index="default" type="array">
+        </languageKey>
+        <languageKey index="dk" type="array">
+        </languageKey>
+        <languageKey index="de" type="array">
+        </languageKey>
+        <languageKey index="no" type="array">
+        </languageKey>
+        <languageKey index="it" type="array">
+        </languageKey>
+        <languageKey index="fr" type="array">
+        </languageKey>
+        <languageKey index="es" type="array">
+        </languageKey>
+        <languageKey index="nl" type="array">
+        </languageKey>
+        <languageKey index="cz" type="array">
+        </languageKey>
+        <languageKey index="pl" type="array">
+        </languageKey>
+        <languageKey index="si" type="array">
+        </languageKey>
+        <languageKey index="fi" type="array">
+        </languageKey>
+        <languageKey index="tr" type="array">
+        </languageKey>
+        <languageKey index="se" type="array">
+        </languageKey>
+        <languageKey index="pt" type="array">
+        </languageKey>
+        <languageKey index="lv" type="array">
+        </languageKey>
+    </orig_text>
+</T3locallang>

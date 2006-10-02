@@ -1,0 +1,32 @@
+2006-10-02	Dmitry Dulepov	<typo3@accio.lv>
+
+	* Released version 1.0.0
+
+2006-10-02	Dmitry Dulepov	<typo3@accio.lv>
+
+	* Added configuration entry for archive PID in flexform
+	* Added export of mapped example template
+	* Documentation finalized
+	* Removed unused clear.gif from pi1
+	* Removed unused column from tt_content
+
+2006-10-01	Dmitry Dulepov	<typo3@accio.lv>
+
+	* Plugin interactive configuration is fully moved to flexform
+	* Added more link fields to TemplaVoila data structure
+	* Code modified to work with new flexform configuration fields
+	* Modified template to correctly map with links
+	* Started documentation
+	* Modified news record icon
+
+2006-09-13	Dmitry Dulepov	<typo3@accio.lv>
+
+	* Converted all language files to xml
+	* Fixed: unable to include FP listing through TS
+	* Removed automatic link from news header when TV templating is used
+	* Removed link from the current page in page browser
+	* Removed "Previous" link
+	* Added ChangeLog and phpEclipse project file
+	* Added option to disable search box from TypoScript
+	* Removed obsolete PHP language files
+	* Added <div>s around news items in list (easier to format items)
