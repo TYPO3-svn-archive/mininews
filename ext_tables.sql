@@ -1,13 +1,4 @@
 #
-# Table structure for table 'tt_content'
-#
-CREATE TABLE tt_content (
-	tx_mininews_frontpage_list int(11) unsigned DEFAULT '0' NOT NULL
-);
-
-
-
-#
 # Table structure for table 'tx_mininews_news'
 #
 CREATE TABLE tx_mininews_news (

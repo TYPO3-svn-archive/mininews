@@ -4,6 +4,7 @@
 	* Added export of mapped example template
 	* Documentation finalized
 	* Removed unused clear.gif from pi1
+	* Removed unused column from tt_content
 
 2006-10-01	Dmitry Dulepov	<typo3@accio.lv>
 
