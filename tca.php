@@ -61,7 +61,7 @@ $TCA["tx_mininews_news"] = Array (
 		),
 		"datetime" => Array (		
 			"exclude" => 1,		
-			"label" => "LLL:EXT:mininews/locallang_db.php:tx_mininews_news.datetime:ESQ",
+			"label" => "LLL:EXT:mininews/locallang_db.xml:tx_mininews_news.datetime:ESQ",
 			"config" => Array (
 				"type" => "input",
 				"size" => "12",
@@ -73,7 +73,7 @@ $TCA["tx_mininews_news"] = Array (
 		),
 		"title" => Array (		
 			"exclude" => 0,		
-			"label" => "LLL:EXT:mininews/locallang_db.php:tx_mininews_news.title:ESQ",
+			"label" => "LLL:EXT:mininews/locallang_db.xml:tx_mininews_news.title:ESQ",
 			"config" => Array (
 				"type" => "input",	
 				"size" => "30",	
@@ -82,7 +82,7 @@ $TCA["tx_mininews_news"] = Array (
 		),
 		"teaser" => Array (		
 			"exclude" => 1,		
-			"label" => "LLL:EXT:mininews/locallang_db.php:tx_mininews_news.teaser:ESQ",
+			"label" => "LLL:EXT:mininews/locallang_db.xml:tx_mininews_news.teaser:ESQ",
 			"config" => Array (
 				"type" => "text",
 				"cols" => "30",	
@@ -91,7 +91,7 @@ $TCA["tx_mininews_news"] = Array (
 		),
 		"full_text" => Array (		
 			"exclude" => 1,		
-			"label" => "LLL:EXT:mininews/locallang_db.php:tx_mininews_news.full_text:ESQ",
+			"label" => "LLL:EXT:mininews/locallang_db.xml:tx_mininews_news.full_text:ESQ",
 			"config" => Array (
 				"type" => "text",
 				"cols" => "30",
@@ -102,7 +102,7 @@ $TCA["tx_mininews_news"] = Array (
 						"notNewRecords" => 1,
 						"RTEonly" => 1,
 						"type" => "script",
-						"title" => "LLL:EXT:mininews/locallang_db.php:tx_mininews_news.full_text.W.RTE",
+						"title" => "LLL:EXT:mininews/locallang_db.xml:tx_mininews_news.full_text.W.RTE",
 						"icon" => "wizard_rte2.gif",
 						"script" => "wizard_rte.php",
 					),
@@ -111,7 +111,7 @@ $TCA["tx_mininews_news"] = Array (
 		),
 		"front_page" => Array (		
 			"exclude" => 1,		
-			"label" => "LLL:EXT:mininews/locallang_db.php:tx_mininews_news.front_page:ESQ",
+			"label" => "LLL:EXT:mininews/locallang_db.xml:tx_mininews_news.front_page:ESQ",
 			"config" => Array (
 				"type" => "check",
 				"default" => 1,

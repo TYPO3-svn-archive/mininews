@@ -15,7 +15,7 @@ t3lib_extMgm::addPiFlexFormValue($_EXTKEY.'_pi1', 'FILE:EXT:mininews/flexform_ds
 // Only the 'ctrl' section is defined since the rest of the config is in the 'tca.php' file, loaded dynamically when needed.
 $TCA['tx_mininews_news'] = Array (
 	'ctrl' => Array (
-		'title' => 'LLL:EXT:mininews/locallang_db.php:tx_mininews_news',
+		'title' => 'LLL:EXT:mininews/locallang_db.xml:tx_mininews_news',
 		'label' => 'title',	
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
@@ -42,7 +42,7 @@ t3lib_extMgm::allowTableOnStandardPages('tx_mininews_news');
 t3lib_extMgm::addToInsertRecords('tx_mininews_news');
 
 
-t3lib_extMgm::addPlugin(Array('LLL:EXT:mininews/locallang_db.php:tt_content.list_type', $_EXTKEY.'_pi1'),'list_type');
+t3lib_extMgm::addPlugin(Array('LLL:EXT:mininews/locallang_db.xml:tt_content.list_type', $_EXTKEY.'_pi1'),'list_type');
 
 // Adding datastructure for Mininews:
 $GLOBALS['TBE_MODULES_EXT']['xMOD_tx_templavoila_cm1']['staticDataStructures'][]=array(
