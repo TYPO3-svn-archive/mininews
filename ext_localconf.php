@@ -29,6 +29,7 @@ t3lib_extMgm::addTypoScript($_EXTKEY,'editorcfg','
 
 t3lib_extMgm::addPItoST43($_EXTKEY,'pi1/class.tx_mininews_pi1.php','_pi1','list_type',1);
 
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['list_type_Info']['mininews_pi1'][] = 'EXT:mininews/class.tx_mininews_cms_layout.php:tx_mininews_cms_layout->getExtensionSummary';
 
 t3lib_extMgm::addTypoScript($_EXTKEY,'setup','
 	tt_content.shortcut.20.0.conf.tx_mininews_news = < plugin.'.t3lib_extMgm::getCN($_EXTKEY).'_pi1

@@ -1,3 +1,7 @@
+2006-09-09	Dmitry Dulepov	<typo3@accio.lv>
+
+	* Added CMS layout hook (4.2 feature)
+
 2006-10-06	Dmitry Dulepov	<typo3@accio.lv>
 
 	* Fixed references to locallang*.php (should be locallang*.xml)

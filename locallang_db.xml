@@ -13,6 +13,7 @@
             <label index="tt_content.tx_mininews_frontpage_list">Listing mode:</label>
             <label index="tt_content.tx_mininews_frontpage_list.I.0">Archive/search</label>
             <label index="tt_content.tx_mininews_frontpage_list.I.1">Frontpage teaser</label>
+            <label index="tt_content.tx_mininews_frontpage_list.I.1">Plugin is not configured!</label>
             <label index="tx_mininews_news">News</label>
             <label index="tx_mininews_news.datetime">Time / Date:</label>
             <label index="tx_mininews_news.title">Title:</label>
