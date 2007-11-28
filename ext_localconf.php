@@ -35,4 +35,6 @@ t3lib_extMgm::addTypoScript($_EXTKEY,'setup','
 	tt_content.shortcut.20.0.conf.tx_mininews_news = < plugin.'.t3lib_extMgm::getCN($_EXTKEY).'_pi1
 	tt_content.shortcut.20.0.conf.tx_mininews_news.CMD = singleView
 ',43);
+
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/realurl/class.tx_realurl_autoconfgen.php']['extensionConfiguration']['mininews'] = 'EXT:mininews/class.tx_mininews_realurl.php:tx_mininews_realurl->addMininewsConfig'
 ?>
