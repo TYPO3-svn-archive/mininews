@@ -1,4 +1,8 @@
-2006-09-09	Dmitry Dulepov	<typo3@accio.lv>
+2008-02-21	Dmitry Dulepov	<dmitry@typo3.org>
+
+	* Fixed labels
+
+2007-09-09	Dmitry Dulepov	<typo3@accio.lv>
 
 	* Added CMS layout hook (4.2 feature)
 
